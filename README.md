@@ -1,1 +1,1 @@
-# TechEvents
+# techEvents
