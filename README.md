@@ -1,5 +1,7 @@
 ### Tech Events
 
+under development
+=======
 ## About the project
 
 ## How to use
@@ -14,4 +16,3 @@ It's all set!
 - [Miguel Dominguez](https://github.com/MADROCHA)
 - [Lucas Abidoral](https://github.com/Lucasbcn)
 - [Alex Vidal](https://github.com/ginkgob)
-
