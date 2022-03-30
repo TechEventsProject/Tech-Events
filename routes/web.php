@@ -21,3 +21,5 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
+
+/* ->middleware('auth') */
