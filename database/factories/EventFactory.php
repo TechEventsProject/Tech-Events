@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Event>
  */
-class productFactory extends Factory
+class EventFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,13 @@ class productFactory extends Factory
     {
         return [
             //
-            'name'=>$this->faker->company(),
-            'description'=>$this->faker->realText(),
+            'name' => $this->faker->company(),
+            'speaker' => $this->faker->name(),
+            'date and time'=> $this->faker->dateTime($max = 'now', $timezone = null),
+            'participants'=> $this->faker->randomDigitNot(0),
+            'description'=> $this->faker->text($maxNbChars = 100),
+            'image'=> $this->faker->imageUrl($width = 640, $height = 480),
+            'location'=> $this->faker->address(),
         ];
     }
 }
