@@ -1,7 +1,5 @@
 ### Tech Events
 
-under development
-=======
 ## About the project
 
 ## How to use
