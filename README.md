@@ -1,5 +1,3 @@
-### Tech Events
-
 ## About the project
 
 ## How to use
