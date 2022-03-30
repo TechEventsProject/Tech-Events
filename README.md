@@ -4,14 +4,14 @@
 
 ## How to use
 
-If you want to see our project you should first clone this repository: `$ git clone https://github.com/ginkgob/techEvents.git`. It is recommended to install the last version of [link](https://getcomposer.org/)composer, [link](https://www.apachefriends.org/es/index.html)xampp and [link](https://laravel.com/)laravel. Once installed, execute a local server in your code editor typing `$ php artisan serve` in your terminal.
+If you want to see our project you should first clone this repository: `$ git clone https://github.com/ginkgob/techEvents.git`. It is recommended to install the last version of [composer](https://getcomposer.org/), [xampp](https://www.apachefriends.org/es/index.html) and [laravel](https://laravel.com/). Once installed, execute a local server in your code editor typing `$ php artisan serve` in your terminal.
 
 It's all set!
 
 ## Developers
--[link](https://github.com/itsberriver)Jess Mejia
--[link](https://github.com/bigbae18)Adrian Pelayo
--[link](https://github.com/MADROCHA)Miguel Dominguez
--[link](https://github.com/Lucasbcn)Lucas Abidoral
--[link](https://github.com/ginkgob)Alex Vidal
+- [Jess Mejia](https://github.com/itsberriver)
+- [Adrian Pelayo](https://github.com/bigbae18)
+- [Miguel Dominguez](https://github.com/MADROCHA)
+- [Lucas Abidoral](https://github.com/Lucasbcn)
+- [Alex Vidal](https://github.com/ginkgob)
 
