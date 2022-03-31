@@ -28,3 +28,5 @@ Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->nam
 //CRUD Events
 
 Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete');
+Route::get('/edit/{id}', [EventController::class, 'edit'])->name('edit');
+Route::patch('/update/{id}', [EventController::class, 'update'])->name('update');

@@ -38,6 +38,29 @@ class CrudTest extends TestCase
         $response = $this->delete(route('delete', $Event->id));
         $this->assertCount(0, Event::all());
         
-
     }
+    public function test_view_edit()
+    {
+        $this->withExceptionHandling();
+
+        Event::factory()->create();
+
+        $response = $this->get('/edit/1');
+        $response->assertStatus(200)
+            ->assertViewIs('edit');
+    }
+
+    public function test_edit_event()
+    {
+        $this->withExceptionHandling();
+        $Event = Event::factory()->create();
+
+        $this->assertCount(1, Event::all());
+        $this->patch(route('update', $Event->id), ["name" => "New Name"]);
+
+        $this->assertEquals(Event::first()->name, "New Name");
+        $this->assertCount(1, Event::all());
+    }
+    
 }
+
