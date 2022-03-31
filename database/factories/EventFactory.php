@@ -22,6 +22,7 @@ class EventFactory extends Factory
             'speaker' => $this->faker->name(),
             'date and time'=> $this->faker->dateTime($max = 'now', $timezone = null),
             'participants'=> $this->faker->randomDigitNot(0),
+            'max participants'=>$this->faker->randomDigitNot(0),
             'description'=> $this->faker->text($maxNbChars = 100),
             'image'=> $this->faker->imageUrl($width = 640, $height = 480),
             'location'=> $this->faker->address(),

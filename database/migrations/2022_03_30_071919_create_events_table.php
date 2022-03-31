@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('speaker', 150);
             $table->dateTime('date and time');
             $table->integer('participants');
+            $table->integer('max participants');
             $table->string('description', 150);
             $table->string('image', 150);
             $table->string('location', 150);

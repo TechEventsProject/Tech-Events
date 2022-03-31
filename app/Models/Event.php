@@ -14,6 +14,7 @@ class Event extends Model
         'speaker',
         'date and time',
         'participants',
+        'max participants',
         'description',
         'image',
         'location',
