@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('h
 Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 
 /* ->middleware('auth') */
+
+//CRUD Events
+
+Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete');

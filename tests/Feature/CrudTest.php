@@ -27,4 +27,17 @@ class CrudTest extends TestCase
             ->assertViewIs('home');
 
     }
+
+    public function test_delete_event()
+    {
+        $this->withExceptionHandling();
+
+        $Event = Event::factory()->create();
+        $this->assertCount(1, Event::all());
+
+        $response = $this->delete(route('delete', $Event->id));
+        $this->assertCount(0, Event::all());
+        
+
+    }
 }
