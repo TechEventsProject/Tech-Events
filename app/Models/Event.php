@@ -12,9 +12,9 @@ class Event extends Model
     protected $fillable = [
         'name',
         'speaker',
-        'date and time',
+        'date_and_time',
         'participants',
-        'max participants',
+        'max_participants',
         'description',
         'image',
         'location',
