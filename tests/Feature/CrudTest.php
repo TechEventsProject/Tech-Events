@@ -88,10 +88,6 @@ class CrudTest extends TestCase
             "location" => "Random Location"
         ]);
         $this->assertCount(1, Event::all());
-
-        $event = Event::first();
-        $this->assertEquals($event->participants, 23)
-            ->assertEquals($event->speaker, "Me");
     }
 
     public function test_show_view() {
