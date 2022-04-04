@@ -10,9 +10,10 @@
         <span>Description</span>
         <input type="text" name="description" value="{{$event->description}}">
         <button type="submit" onclick="return confirm('validate? {{$event->name}}')">Validate</button>
-        <button type="button" onclick="{{ route('home') }}">Cancel</button>
+        <a href="{{route('home')}}">
+            <button type="button">Cancel</button>
+        </a>
     </div>
-
 </form>
 
 @endsection
