@@ -90,7 +90,19 @@ class CrudTest extends TestCase
         $this->assertCount(1, Event::all());
 
         $event = Event::first();
-        $this->assertEquals($event->participants, 23)->assertEquals($event->speaker, "Me");
+        $this->assertEquals($event->participants, 23)
+            ->assertEquals($event->speaker, "Me");
+    }
+
+    public function test_show_view() {
+        $this->withExceptionHandling();
+
+        Event::factory()->create();
+
+        $response = $this->get('/show/1');
+
+        $response->assertStatus(200)
+            ->assertViewIs('show');
     }
 }
 
