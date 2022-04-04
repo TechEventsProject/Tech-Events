@@ -32,13 +32,14 @@ class CrudTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $Event = Event::factory()->create();
+        $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
 
-        $response = $this->delete(route('delete', $Event->id));
+        $response = $this->delete(route('delete', $event->id));
         $this->assertCount(0, Event::all());
         
     }
+
     public function test_view_edit()
     {
         $this->withExceptionHandling();
@@ -50,7 +51,7 @@ class CrudTest extends TestCase
             ->assertViewIs('edit');
     }
 
-    public function test_edit_event()
+    public function test_update_event()
     {
         $this->withExceptionHandling();
         $Event = Event::factory()->create();
@@ -61,6 +62,35 @@ class CrudTest extends TestCase
         $this->assertEquals(Event::first()->name, "New Name");
         $this->assertCount(1, Event::all());
     }
+
+    public function test_view_create()
+    {
+        $this->withExceptionHandling();
+
+        $response = $this->get('/create');
+
+        $response->assertStatus(200)
+            ->assertViewIs('create');
+    }
     
+    public function test_store_event()
+    {
+        $this->withExceptionHandling();
+
+        $this->post(route('store'), [
+            "name" => "Random Name",
+            "speaker" => "Me",
+            "date_and_time" => "2011-09-17 12:36:49",
+            "participants" => "23",
+            "max_participants" => "64",
+            "description" => "A long long description full of Lorem Ipsums",
+            "image" => "https://via.placeholder.com/640x480.png/ffff00?text=RandomName",
+            "location" => "Random Location"
+        ]);
+        $this->assertCount(1, Event::all());
+
+        $event = Event::first();
+        $this->assertEquals($event->participants, 23)->assertEquals($event->speaker, "Me");
+    }
 }
 
