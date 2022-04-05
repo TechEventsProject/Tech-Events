@@ -33,3 +33,7 @@ Route::patch('/update/{id}', [EventController::class, 'update'])->name('update')
 Route::post('/events', [EventController::class, 'store'])->name('store');
 Route::get('/create', [EventController::class, 'create'])->name('create');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
