@@ -37,3 +37,4 @@ Route::get('/create', [EventController::class, 'create'])->name('create');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/show/{id}', [EventController::class, 'show'])->name('show');

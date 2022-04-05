@@ -23,6 +23,11 @@
                 <p>Edit</p>
             </button>
         </a>
+        <a href="{{route('show', ['id' => $event->id])}}">
+            <button type="button" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                <p>Show</p>
+            </button>
+        </a>
     </form>
 </div>
 
