@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Event;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CrudTest extends TestCase
 {
@@ -35,7 +36,9 @@ class CrudTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $adminFactory = User::factory()->create(['isAdmin' => true]);
+        Auth::login($adminFactory);
+        $userAdmin = Auth::user();
         $this->actingAs($userAdmin);
 
         $event = Event::factory()->create();
@@ -46,11 +49,13 @@ class CrudTest extends TestCase
     }
 
     public function test_delete_event_user(){
-        
+
         $this->withExceptionHandling();
 
-        $user1 = User::factory()->create();
-        $this->actingAs($user1);
+        $userFactory = User::factory()->create();
+        Auth::login($userFactory);
+        $userRetrieve = Auth::user();
+        $this->actingAs($userRetrieve);
 
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
@@ -65,7 +70,9 @@ class CrudTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $adminFactory = User::factory()->create(['isAdmin' => true]);
+        Auth::login($adminFactory);
+        $userAdmin = Auth::user();
         $this->actingAs($userAdmin);
 
         Event::factory()->create();
@@ -81,7 +88,9 @@ class CrudTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $adminFactory = User::factory()->create(['isAdmin' => true]);
+        Auth::login($adminFactory);
+        $userAdmin = Auth::user();
         $this->actingAs($userAdmin);
 
         $event = Event::factory()->create();
@@ -99,7 +108,9 @@ class CrudTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $adminFactory = User::factory()->create(['isAdmin' => true]);
+        Auth::login($adminFactory);
+        $userAdmin = Auth::user();
         $this->actingAs($userAdmin);
 
         $response = $this->get('/create');
@@ -114,7 +125,9 @@ class CrudTest extends TestCase
     {
         $this->withExceptionHandling();
 
-        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $adminFactory = User::factory()->create(['isAdmin' => true]);
+        Auth::login($adminFactory);
+        $userAdmin = Auth::user();
         $this->actingAs($userAdmin);
 
         $this->post(route('store'), [
@@ -135,7 +148,9 @@ class CrudTest extends TestCase
     public function test_show_view() {
         $this->withExceptionHandling();
 
-        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $adminFactory = User::factory()->create(['isAdmin' => true]);
+        Auth::login($adminFactory);
+        $userAdmin = Auth::user();
         $this->actingAs($userAdmin);
 
         $event = Event::factory()->create();
