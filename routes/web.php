@@ -18,12 +18,12 @@ use App\Http\Controllers\EventController;
     return view('welcome');
 }); */
 
-Auth::routes();
 
 Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\EventController::class, 'index'])->name('home');
 
 /* ->middleware('auth') */
+Auth::routes();
 
 //CRUD Events
 
@@ -32,9 +32,4 @@ Route::get('/edit/{id}', [EventController::class, 'edit'])->name('edit');
 Route::patch('/update/{id}', [EventController::class, 'update'])->name('update');
 Route::post('/events', [EventController::class, 'store'])->name('store');
 Route::get('/create', [EventController::class, 'create'])->name('create');
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/show/{id}', [EventController::class, 'show'])->name('show');
