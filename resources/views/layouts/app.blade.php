@@ -23,40 +23,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
-            <ul class="container flex justify-between p-6 items-center" >
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Tech Events') }}
+        <nav class="bg-black">
+        @guest 
+        <ul class="container flex justify-between p-6 items-center" >
+            <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
+            <div class="flex items-center">
+                @if(Route::has('login'))
+                <a href="{{ route('login') }}">
+                    <li  class="mr-3 text-white font-['Montserrat']">{{__('Login')}}</li>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                @endif
+                <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
+            </div>
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -73,8 +56,8 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
-                    </ul>
+            </ul>
+            @endguest
                 </div>
             </div>
         </nav>
