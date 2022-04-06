@@ -12,7 +12,7 @@
 @foreach ($events as $event)
 
 <div class="flex justify-center flex-column p-20">
-    <p class="text-center text-2xl">{{$event->name}}</p>
+    <p class="text-center text-2xl text-white">{{$event->name}}</p>
     <img class="h-full w-full" src="{{$event->image}}" alt="events">
     <form class="flex justify-end" action="{{route('delete', ['id' => $event->id])}}" method="post">
         @method('delete')
