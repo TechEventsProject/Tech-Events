@@ -4,7 +4,7 @@ Tech Events is a web application where the users can explore and subscribe betwe
 
 ## How to use
 
-If you want to see our project you should first clone this repository: `$ git clone https://github.com/ginkgob/techEvents.git`. It is recommended to install the last version of [composer](https://getcomposer.org/), [xampp](https://www.apachefriends.org/es/index.html) and [laravel](https://laravel.com/). Once installed, execute a local server in your code editor typing `$ php artisan serve` in your terminal. It is important to name DB_DATABASE in your `$.env` folder with the same name as your new table in your local database.  
+If you want to see our project you should first clone this repository: `$ git clone https://github.com/ginkgob/techEvents.git`. It is recommended to install the last version of [composer](https://getcomposer.org/), [xampp](https://www.apachefriends.org/es/index.html) and [laravel](https://laravel.com/). Once installed, execute a local server in your code editor typing `$ php artisan serve` in your terminal. It is important to name DB_DATABASE in your `.env` folder with the same name as your new table in your local database.  
 
 It's all set!
 
