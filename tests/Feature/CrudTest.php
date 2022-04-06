@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Event;
+use App\Models\User;
 
 class CrudTest extends TestCase
 {
@@ -28,21 +29,44 @@ class CrudTest extends TestCase
 
     }
 
-    public function test_delete_event()
+    //---------------DELETE-------------------
+
+    public function test_delete_event_admin()
     {
         $this->withExceptionHandling();
+
+        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $this->actingAs($userAdmin);
 
         $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
 
         $response = $this->delete(route('delete', $event->id));
         $this->assertCount(0, Event::all());
-        
     }
+
+    public function test_delete_event_user(){
+        
+        $this->withExceptionHandling();
+
+        $user1 = User::factory()->create();
+        $this->actingAs($user1);
+
+        $event = Event::factory()->create();
+        $this->assertCount(1, Event::all());
+
+        $response = $this->delete(route('delete', $event->id));
+        $this->assertCount(1, Event::all());
+    }
+
+    //---------------VIEW EDIT-------------------
 
     public function test_view_edit()
     {
         $this->withExceptionHandling();
+
+        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $this->actingAs($userAdmin);
 
         Event::factory()->create();
 
@@ -51,31 +75,47 @@ class CrudTest extends TestCase
             ->assertViewIs('edit');
     }
 
+    //---------------UPDATE-------------------
+
     public function test_update_event()
     {
         $this->withExceptionHandling();
-        $Event = Event::factory()->create();
 
+        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $this->actingAs($userAdmin);
+
+        $event = Event::factory()->create();
         $this->assertCount(1, Event::all());
-        $this->patch(route('update', $Event->id), ["name" => "New Name"]);
 
-        $this->assertEquals(Event::first()->name, "New Name");
+        $this->patch(route('update', $event->id), ['name' => 'New Name']);
+
+        $this->assertEquals(Event::first()->name, 'New Name');
         $this->assertCount(1, Event::all());
     }
+
+    //---------------VIEW CREATE-------------------
 
     public function test_view_create()
     {
         $this->withExceptionHandling();
+
+        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $this->actingAs($userAdmin);
 
         $response = $this->get('/create');
 
         $response->assertStatus(200)
             ->assertViewIs('create');
     }
-    
+
+    //---------------STORE-------------------
+
     public function test_store_event()
     {
         $this->withExceptionHandling();
+
+        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $this->actingAs($userAdmin);
 
         $this->post(route('store'), [
             "name" => "Random Name",
@@ -90,15 +130,20 @@ class CrudTest extends TestCase
         $this->assertCount(1, Event::all());
     }
 
+    //---------------VIEW SHOW-------------------
+
     public function test_show_view() {
         $this->withExceptionHandling();
 
-        Event::factory()->create();
+        $userAdmin = User::factory()->create(['isAdmin' => true]);
+        $this->actingAs($userAdmin);
 
-        $response = $this->get('/show/1');
+        $event = Event::factory()->create();
+
+        $response = $this->get(route('show', $event->id));
 
         $response->assertStatus(200)
-            ->assertViewIs('show');
+            ->assertSee($event->description);
     }
 }
 
