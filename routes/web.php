@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,6 @@ Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete
 Route::get('/edit/{id}', [EventController::class, 'edit'])->name('edit');
 Route::patch('/update/{id}', [EventController::class, 'update'])->name('update');
 Route::post('/events', [EventController::class, 'store'])->name('store');
-Route::get('/create', [EventController::class, 'create'])->name('create');
+Route::get('/create', [EventController::class, 'create'])->name('create')->middleware('auth','isAdmin');
+
 Route::get('/show/{id}', [EventController::class, 'show'])->name('show');
