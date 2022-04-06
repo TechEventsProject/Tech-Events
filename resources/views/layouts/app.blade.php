@@ -38,30 +38,47 @@
                 @endif
                 <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
             </div>
-                        @else
-                            <li class="">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-            </ul>
-            @endguest
+            @else
+            <ul class="container flex justify-between p-6 items-center" >
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
+                        <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
+                        <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
+                    </button>
+                    <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold">
+                        <li>About Us</li>
+                        <li>Masterclass</li>
+                        <li>Workshops</li>
+                        <li>Webinars</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="flex items-center">
+                    <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <!--REDIRECCIONAR ESTO A "MY EVENTS" PAGE, AHORA ESTA IGUAL QUE LOG-OUT-->
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('My Events') }}
+                    </a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    </div>
+                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> <!--Img de usuario MODIFICAR-->
+                </div>
+            </ul>
+        @endguest
         </nav>
-
+    </div>
+    <div>
         <main class="grid grid-cols-2 gap-8">
             @yield('content')
         </main>
