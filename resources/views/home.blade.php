@@ -3,7 +3,7 @@
 @section('content')
 
 @if (Auth::check() && Auth::user()->isAdmin())
-<a href="{{route('create')}}">
+<a class="col-span-2" href="{{route('create')}}">
     <button type="submit">
         <p class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Create</p>
     </button>

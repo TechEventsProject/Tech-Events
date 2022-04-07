@@ -160,5 +160,15 @@ class CrudTest extends TestCase
         $response->assertStatus(200)
             ->assertSee($event->description);
     }
+
+    public function test_past_event_has_ended(){
+        $this->withExceptionHandling();
+        
+        $pastEvent = Event::factory()->create(['past_event' => true]);
+        $response = $this->get(route('past_event', $pastEvent));
+
+        $response->assertStatus(200)
+            ->assertViewIs('past_event');
+    }
 }
 

@@ -4,21 +4,19 @@
 <form action="{{route('store')}}" method="post">
     @csrf
     <div class="flex flex-column">
-            <span class="font-bold">Name</span>
+            <span class="font-bold text-white">Name</span>
             <input type="text" name="name">
-            <span class="font-bold">Speaker</span>
+            <span class="font-bold text-white">Speaker</span>
             <input type="text" name="speaker">
-            <span class="font-bold">Date and Time</span>
+            <span class="font-bold text-white">Date and Time</span>
             <input type="datetime-local" name="date_and_time">
-            <span class="font-bold">Participants</span>
-            <input type="text" name="participants">
-            <span class="font-bold">Maximum participants</span>
+            <span class="font-bold text-white">Maximum participants</span>
             <input type="text" name="max_participants">
-            <span class="font-bold">Description</span>
+            <span class="font-bold text-white">Description</span>
             <input type="text" name="description">
-            <span class="font-bold">image</span>
+            <span class="font-bold text-white">image</span>
             <input type="text" name="image">
-            <span class="font-bold">location</span>
+            <span class="font-bold text-white">location</span>
             <input type="text" name="location">
     
             <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" onclick="return confirm('Confirm?')">Validate</button>

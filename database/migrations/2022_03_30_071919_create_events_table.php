@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('name', 150);
             $table->string('speaker', 150)->nullable();
             $table->dateTime('date_and_time')->nullable();
-            $table->integer('participants')->nullable();
             $table->integer('max_participants')->nullable();
             $table->string('description', 150);
             $table->string('image', 150)->nullable();
             $table->string('location', 150)->nullable();
+            $table->boolean('past_event')->default(false);
+            $table->boolean('highlighted')->default(false);
             $table->timestamps();
         });
     }
