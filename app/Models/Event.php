@@ -13,10 +13,11 @@ class Event extends Model
         'name',
         'speaker',
         'date_and_time',
-        'participants',
         'max_participants',
         'description',
         'image',
         'location',
+        'past_event',
+        'highlighted',
     ];
 }

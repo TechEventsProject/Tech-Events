@@ -23,63 +23,77 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
-<body>
+
+<body class="bg-black">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
-            <ul class="container flex justify-between p-6 items-center" >
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Tech Events') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+        <nav>
+        @guest 
+        <ul class="container flex justify-between p-6 items-center" >
+            <div class="dropdown relative">
+                <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
+                    <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
+                    <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
+                space-y-9">
+                    <li class="hover:bg-[#69C4A0]">About Us</li>
+                    <li>Masterclass</li>
+                    <li>Workshops</li>
+                    <li>Webinars</li>
+                </ul>
             </div>
+        <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
+            <div class="flex items-center">
+                @if(Route::has('login'))
+                <a href="{{ route('login') }}">
+                    <li  class="mr-3 text-white font-['Montserrat']">{{__('Login')}}</li>
+                </a>
+                @endif
+                <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
+            </div>
+            @else
+            <ul class="container flex justify-between p-6 items-center" >
+            <div class="dropdown relative">
+                <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
+                    <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
+                    <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
+                </button>
+                <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
+                space-y-9">
+                    <li>About Us</li>
+                    <li>Masterclass</li>
+                    <li>Workshops</li>
+                    <li>Webinars</li>
+                </ul>
+            </div>
+                <div class="flex items-center">
+                    <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <!--REDIRECCIONAR ESTO A "MY EVENTS" PAGE, AHORA ESTA IGUAL QUE LOG-OUT-->
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('My Events') }}
+                    </a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    </div>
+                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> <!--Img de usuario MODIFICAR-->
+                </div>
+            </ul>
+        @endguest
         </nav>
-
-        <main class="grid grid-cols-2 gap-8">
+    </div>
+    <div>
+        <main class="grid grid-cols-2 md:gap-8">
             @yield('content')
         </main>
     </div>

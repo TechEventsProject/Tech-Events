@@ -97,4 +97,9 @@ class EventController extends Controller
         Event::destroy($id);
         return redirect()->route('home');
     }
+    
+    public function pastEvent(){
+        $events = Event::where('past_event', '=', 1);
+        return view('past_event', compact('past_event'));
+    }
 }

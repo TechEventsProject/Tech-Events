@@ -32,4 +32,5 @@ Route::patch('/update/{id}', [EventController::class, 'update'])->name('update')
 Route::post('/events', [EventController::class, 'store'])->name('store')->middleware('auth','isAdmin');
 Route::get('/create', [EventController::class, 'create'])->name('create')->middleware('auth','isAdmin');
 Route::get('/show/{id}', [EventController::class, 'show'])->name('show');
+Route::get('/past_event', [EventController::class, 'past_event'])->name('past_event');
 
