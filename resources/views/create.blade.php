@@ -3,8 +3,8 @@
 
 <form action="{{route('store')}}" method="post">
     @csrf
-    <div class="flex flex-column">
-            <span class="font-bold text-white">Name</span>
+    <div class="flex flex-column w-screen p-4">
+            <span class="font-bold text-white text-center">Name</span>
             <input type="text" name="name">
             <span class="font-bold text-white">Speaker</span>
             <input type="text" name="speaker">
@@ -18,11 +18,12 @@
             <input type="text" name="image">
             <span class="font-bold text-white">location</span>
             <input type="text" name="location">
-    
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" onclick="return confirm('Confirm?')">Validate</button>
-            <a href="{{route('home')}}">
-                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full" type="button">Cancel</button>
-            </a>
+            <div class="flex justify-center">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" onclick="return confirm('Confirm?')">Validate</button>
+                <a href="{{route('home')}}">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full" type="button">Cancel</button>
+                </a>
+            </div>
         </div>
 
 

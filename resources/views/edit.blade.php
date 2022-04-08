@@ -4,7 +4,7 @@
     <form action="{{route('update', $event->id)}}" method="post">
         @method('patch')
         @csrf
-        <div class="flex flex-column col-span-2">
+        <div class="flex flex-column w-screen p-4">
             <span class="font-bold text-white">Name</span>
             <input type="text" name="name" value="{{$event->name}}">
             <span class="font-bold text-white">Speaker</span>
@@ -19,11 +19,12 @@
             <input type="text" name="image" value="{{$event->image}}">
             <span class="font-bold text-white">location</span>
             <input type="text" name="location" value="{{$event->location}}">
-    
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" onclick="return confirm('validate? {{$event->name}}')">Validate</button>
-            <a href="{{route('home')}}">
-                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full" type="button">Cancel</button>
-            </a>
+            <div class="flex justify-center">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" onclick="return confirm('validate? {{$event->name}}')">Validate</button>
+                <a href="{{route('home')}}">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full" type="button">Cancel</button>
+                </a>
+            </div>
         </div>
     </form>
 </body>
