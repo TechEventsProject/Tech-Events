@@ -48,7 +48,7 @@ class CrudTest extends TestCase
         $this->assertCount(0, Event::all());
     }
 
-    public function test_delete_event_user(){
+    public function test_user_cannot_delete_event(){
 
         $this->withExceptionHandling();
 
