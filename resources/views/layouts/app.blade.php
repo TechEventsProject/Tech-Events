@@ -24,7 +24,7 @@
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-black">
+<body class="bg-black h-screen">
     <div id="app">
         <nav>
         @guest 

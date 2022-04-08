@@ -1,32 +1,26 @@
 @extends ('layouts.app')
 @section('content')
-
-<form action="{{route('store')}}" method="post">
-    @csrf
-    <div class="flex flex-column w-screen p-4">
-            <span class="font-bold text-white text-center">Name</span>
-            <input type="text" name="name">
-            <span class="font-bold text-white">Speaker</span>
-            <input type="text" name="speaker">
-            <span class="font-bold text-white">Date and Time</span>
-            <input type="datetime-local" name="date_and_time">
-            <span class="font-bold text-white">Maximum participants</span>
-            <input type="text" name="max_participants">
-            <span class="font-bold text-white">Description</span>
-            <input type="text" name="description">
-            <span class="font-bold text-white">image</span>
-            <input type="text" name="image">
-            <span class="font-bold text-white">location</span>
-            <input type="text" name="location">
-            <div class="flex justify-center">
-                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit" onclick="return confirm('Confirm?')">Validate</button>
-                <a href="{{route('home')}}">
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full" type="button">Cancel</button>
-                </a>
+<body class="h-screen w-max-screen text-white">
+    <div class="flex justify-center col-span-2">
+        <h1 class="text-white font-['Montserrat'] text-3xl font-bold">Create</h1>
+    </div>
+    <form action="{{route('store')}}" method="post">
+        @csrf
+        <div class="flex justify-center flex-column w-screen p-4 gap-4 items-center">
+                <input type="text" name="name" class="rounded-3xl text-center w-64 h-11" placeholder="Name">
+                <input type="text" name="speaker" class="rounded-3xl text-center w-64 h-11" placeholder="Speaker">
+                <input type="datetime-local" name="date_and_time" class="rounded-3xl text-center w-64 h-11" placeholder="Date and Time">
+                <input type="text" name="max_participants" class="rounded-3xl text-center w-64 h-11" placeholder="Maximum participants">
+                <textarea rows="10" cols="25" name="description" class="rounded-3xl text-center w-64 h-11 pl-6 pr-6" placeholder="Description"></textarea> 
+                <input type="text" name="image" class="rounded-3xl text-center w-64 h-11" placeholder="Image (Url)">
+                <input type="text" name="location" class="rounded-3xl text-center w-64 h-11" placeholder="Location">
+                <div class="flex justify-center gap-2">
+                    <button class="h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold" type="submit" onclick="return confirm('Confirm?')">Create</button>
+                    <a href="{{route('home')}}">
+                        <button class="h-9 w-32 rounded-3xl bg-white font-['Montserrat'] font-bold" type="button">Cancel</button>
+                    </a>
+                </div>
             </div>
-        </div>
-
-
-</form>
+    </form>
 
 @endsection
