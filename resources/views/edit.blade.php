@@ -4,7 +4,7 @@
     <form action="{{route('update', $event->id)}}" method="post">
         @method('patch')
         @csrf
-        <div class="flex flex-column">
+        <div class="flex flex-column col-span-2">
             <span class="font-bold text-white">Name</span>
             <input type="text" name="name" value="{{$event->name}}">
             <span class="font-bold text-white">Speaker</span>

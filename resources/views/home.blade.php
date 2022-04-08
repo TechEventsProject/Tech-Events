@@ -11,9 +11,9 @@
 @endif
 @foreach ($events as $event)
 
-<div class="flex justify-center flex-column p-20">
-    <p class="text-center text-2xl text-white">{{$event->name}}</p>
-    <img class="h-full w-full" src="{{$event->image}}" alt="events">
+<div class="flex justify-center flex-column p-20 sm:p-2">
+    <p class="text-center text-2xl text-white sm: text-lg">{{$event->name}}</p>
+    <img class="h-full w-full sm: h-100 w-100" src="{{$event->image}}" alt="events">
     <form class="flex justify-end" action="{{route('delete', ['id' => $event->id])}}" method="post">
         @method('delete')
         @csrf
@@ -36,9 +36,6 @@
         </a>
     </form>
 </div>
-
-
-
 
 @endforeach
 

@@ -60,7 +60,7 @@
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
                 space-y-9">
-                    <li class="hover:bg-[#69C4A0]">About Us</li>
+                    <li>About Us</li>
                     <li>Masterclass</li>
                     <li>Workshops</li>
                     <li>Webinars</li>
