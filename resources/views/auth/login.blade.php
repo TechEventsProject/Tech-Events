@@ -51,7 +51,7 @@
     <div class="flex flex-col text-white items-center justify-start col-span-2 mt-4">
         <p class="text-gray-400">Unregistered?</p>
         <a href="{{route('register')}}">
-            <p class="font-bold underline-offset-1 text-white">REGISTER HERE</p> <!--Subrallado manual tailwind, no existe preset-->
+            <p class="font-bold underline-offset-1 text-white">REGISTER HERE</p> <!--Hacer subrallado manual tailwind, no existe preset-->
         </a>
     </div>
     <a href="{{URL::previous()}}">

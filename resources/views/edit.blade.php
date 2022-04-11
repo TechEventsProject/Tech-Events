@@ -1,13 +1,12 @@
 @extends ('layouts.app')
 @section('content')
-<body class="h-screen w-max-screen text-white">
     <div class="flex justify-center col-span-2">
         <h1 class="text-white font-['Montserrat'] text-3xl font-bold">Edit</h1>
     </div>
     <form action="{{route('update', $event->id)}}" method="post">
         @method('patch')
         @csrf
-        <div class="flex justify-center flex-column w-screen p-4 gap-4 items-center">
+        <div class="flex justify-center flex-column w-screen p-4 gap-4 items-center border-1 border-white rounded-3xl">
             <input type="text" name="name" value="{{$event->name}}" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Name">
             <input type="text" name="speaker" value="{{$event->speaker}}" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Speaker">
             <input type="datetime-local" name="date_and_time" value="{{$event->date_and_time}}" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Date and Time">
@@ -23,6 +22,7 @@
             </div>
         </div>
     </form>
-</body>
-
+    <a href="{{URL::previous()}}" class="col-span-2">
+        <i class="fa-solid fa-arrow-left text-white text-5xl p-4"></i>
+    </a>
 @endsection

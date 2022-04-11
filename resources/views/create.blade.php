@@ -1,8 +1,8 @@
 @extends ('layouts.app')
 @section('content')
-<body class="h-screen w-max-screen text-white">
-    <div class="flex justify-center col-span-2">
-        <h1 class="text-white font-['Montserrat'] text-3xl font-bold">Create</h1>
+    <div class="flex justify-center col-span-2 p-4">
+        <h1 class="text-white font-['Montserrat'] z-10 mt-2 absolute text-3xl font-bold">Create</h1>
+        <h1 class="text-white font-['Montserrat'] z-20 text-3xl font-bold">Create</h1>
     </div>
     <form action="{{route('store')}}" method="post">
         @csrf
@@ -14,7 +14,7 @@
             <textarea rows="10" cols="25" name="description" class="rounded-3xl text-center w-64 h-11 pl-6 pr-6" placeholder="Description"></textarea> 
                     
             <label for="upload-image" class="rounded-3xl text-center w-64 h-11 text-slate-400 bg-white">Upload Image</label>
-            <input type="file" name="image" class="-z-1 absolute opacity-0" id="upload-image">
+            <!-- <input type="file" name="image" class="-z-1 absolute opacity-0" id="upload-image"> -->
                     
             <input type="text" name="location" class="rounded-3xl text-center w-64 h-11" placeholder="Location">
             <div class="flex justify-center gap-2">
@@ -25,5 +25,8 @@
             </div>
         </div>
     </form>
-</body>
+    <a href="{{URL::previous()}}" class="col-span-2">
+        <i class="fa-solid fa-arrow-left text-white text-5xl p-4"></i>
+    </a>
 @endsection
+
