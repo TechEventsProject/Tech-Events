@@ -34,6 +34,11 @@
                 <p>Show</p>
             </button>
         </a>
+        <a href="{{route('subscription', ['id' => $event->id])}}">
+            <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <p>Subscribe</p>
+            </button>
+        </a>
     </form>
 </div>
 

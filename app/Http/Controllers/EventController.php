@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -101,5 +103,16 @@ class EventController extends Controller
     public function pastEvent(){
         $events = Event::where('past_event', '=', 1);
         return view('past_event', compact('past_event'));
+    }
+
+    //-----------Subscription------------
+
+    public function subscription($id) {
+        $user=User::find(Auth::id());
+        $event=Event::find($id);
+
+        $user->event()->attach($event);
+
+        return redirect()->route('home');
     }
 }

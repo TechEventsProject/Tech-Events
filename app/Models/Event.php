@@ -20,4 +20,10 @@ class Event extends Model
         'past_event',
         'highlighted',
     ];
+
+    public function user (){
+
+        return $this->belongsToMany(User::class);
+    }
 }
+
