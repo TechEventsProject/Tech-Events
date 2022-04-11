@@ -75,7 +75,6 @@
                     <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
                         {{ Auth::user()->name }}
                     </a>
-                    <!--REDIRECCIONAR ESTO A "MY EVENTS" PAGE, AHORA ESTA IGUAL QUE LOG-OUT-->
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
                         <a class="dropdown-item" href="{{ route('my_events') }}">
                         <button type="submit">{{ __('My Events') }}</button>
