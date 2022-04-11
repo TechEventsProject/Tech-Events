@@ -49,6 +49,11 @@
                     <li  class="mr-3 text-white font-['Montserrat']">{{__('Login')}}</li>
                 </a>
                 @endif
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}">
+                    <li class="mr-3 text-white font-['Montserrat']">{{ __('Register') }}</li>
+                </a>
+                @endif
                 <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
             </div>
             @else
