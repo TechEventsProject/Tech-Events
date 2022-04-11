@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4 items-center col-span-2">
-        @csrf
+    <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4 items-center col-span-2 h-max mt-6">
+    @csrf
     <section class="flex flex-col gap-4 items-center w-72 h-max bg-[#69C4A0] rounded-3xl p-4">
         <li class="text-9xl list-none"><i class="fa-solid fa-circle-user bg-[#94DB93] text-white rounded-full"></i></li>
         <div>
@@ -48,5 +48,14 @@
         </div>
     </section>
     </form>
-    @endsection
+    <div class="flex flex-col text-white items-center justify-start col-span-2 mt-4">
+        <p class="text-gray-400">Unregistered?</p>
+        <a href="{{route('register')}}">
+            <p class="font-bold underline-offset-1 text-white">REGISTER HERE</p> <!--Subrallado manual tailwind, no existe preset-->
+        </a>
+    </div>
+    <a href="{{URL::previous()}}">
+        <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
+    </a>
+@endsection
     

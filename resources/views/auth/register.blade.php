@@ -14,7 +14,7 @@
                 @enderror
             </div>
             <div>
-                <input placeholder="E-mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror text-center rounded-3xl text-center w-64 h-11" name="email" value="{{ old('email') }}" required autocomplete="email">>
+                <input placeholder="E-mail" id="email" type="email" class="form-control @error('email') is-invalid @enderror text-center rounded-3xl text-center w-64 h-11" name="email" value="{{ old('email') }}" required autocomplete="email">
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -39,4 +39,7 @@
             </div>
     </section>
 </form>
+    <a href="{{URL::previous()}}">
+        <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
+    </a>
 @endsection

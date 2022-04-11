@@ -95,7 +95,7 @@
         </nav>
     </div>
     <div>
-        <main class="grid grid-cols-2 md:gap-8">
+        <main class="grid grid-cols-2 h-max md:gap-8">
             @yield('content')
         </main>
     </div>
