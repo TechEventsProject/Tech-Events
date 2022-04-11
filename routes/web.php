@@ -39,3 +39,4 @@ Route::get('/past_event', [EventController::class, 'past_event'])->name('past_ev
 Route::get('/sub/{id}', [EventController::class, 'subscription'])->name('subscription')->middleware('auth');
 Route::get('/unsub/{id}', [EventController::class, 'unsubscription'])->name('unsubscription')->middleware('auth');
 
+Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');

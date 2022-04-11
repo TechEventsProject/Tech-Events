@@ -107,12 +107,37 @@ class EventController extends Controller
 
     //-----------Subscription------------
 
-    public function subscription($id) {
+    public function subscription($id) 
+    {
         $user=User::find(Auth::id());
         $event=Event::find($id);
 
         $user->event()->attach($event);
 
         return redirect()->route('home');
+    }
+
+    public function unsubscription($id) 
+    {
+        $user=User::find(Auth::id());
+        $event=Event::find($id);
+
+        $user->event()->detach($event);
+
+        return redirect()->route('home');
+    }
+
+    public function my_events() 
+    {
+        $myEventUser = [];
+
+        if(Auth::user()){
+
+            $user = Auth::user();
+            $myEventUser = $user->event;
+            
+        }
+
+        return view ('my_events', compact ('myEventUser'));
     }
 }

@@ -77,19 +77,17 @@
                     </a>
                     <!--REDIRECCIONAR ESTO A "MY EVENTS" PAGE, AHORA ESTA IGUAL QUE LOG-OUT-->
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
+                        <a class="dropdown-item" href="{{ route('my_events') }}">
+                        <button type="submit">{{ __('My Events') }}</button>
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-                        {{ __('My Events') }}
-                    </a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
-                    </form>
+                        </form>
                     </div>
                     <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> <!--Img de usuario MODIFICAR-->
                 </div>
