@@ -36,7 +36,7 @@ Route::get('/past_event', [EventController::class, 'past_event'])->name('past_ev
 
 //subscription unsubscription
 
-Route::get('/sub/{id}', [EventController::class, 'subscription'])->name('subscription')->middleware('auth');
-Route::get('/unsub/{id}', [EventController::class, 'unsubscription'])->name('unsubscription')->middleware('auth');
+Route::get('/sub/{id}', [EventController::class, 'subscribe'])->name('subscribe')->middleware('auth');
+Route::get('/unsub/{id}', [EventController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
 
 Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');

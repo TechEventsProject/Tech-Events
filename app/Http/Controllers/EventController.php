@@ -107,7 +107,7 @@ class EventController extends Controller
 
     //-----------Subscription------------
 
-    public function subscription($id) 
+    public function subscribe($id) 
     {
         $user=User::find(Auth::id());
         $event=Event::find($id);
@@ -117,7 +117,7 @@ class EventController extends Controller
         return redirect()->route('home');
     }
 
-    public function unsubscription($id) 
+    public function unsubscribe($id) 
     {
         $user=User::find(Auth::id());
         $event=Event::find($id);

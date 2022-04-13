@@ -23,7 +23,7 @@ class EventSubscriptionTest extends TestCase
         $this->withExceptionHandling();
 
         $event = Event::factory()->create();
-        $response = $this->get(route('subscription' , $event->id));
+        $response = $this->get(route('subscribe' , $event->id));
 
         $response->assertStatus(302)
             ->assertRedirect('/login');
@@ -38,7 +38,7 @@ class EventSubscriptionTest extends TestCase
         $userLogged = Auth::user();
         $this->actingAs($userLogged);
 
-        $response=$this->get(route('subscription' , $event->id));
+        $response=$this->get(route('subscribe' , $event->id));
 
         $this->assertEquals($user->id,$event->user[0]->id);
     }
