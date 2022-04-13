@@ -29,7 +29,7 @@ class EventSubscriptionTest extends TestCase
             ->assertRedirect('/login');
     }
 
-    public function test_user_subscribe(){
+    public function test_user_can_subscribe(){
         $this->withExceptionHandling();
 
         $event=Event::factory()->create();
@@ -40,7 +40,45 @@ class EventSubscriptionTest extends TestCase
 
         $response=$this->get(route('subscribe' , $event->id));
 
-        $this->assertEquals($user->id,$event->user[0]->id);
+        $this->assertEquals($user->id, $event->user[0]->id);
+    }
+
+    public function test_user_can_unsubscribe_from_event_subscribed() {
+        $this->withExceptionHandling();
+
+        $event = Event::factory()->create();
+        $user = User::factory()->create();
+
+        Auth::login($user);
+        $userLogged = Auth::user();
+
+        $this->actingAs($userLogged);
+
+        $user->event()->attach($event);
+
+        $this->assertEquals($user->id, $event->user[0]->id);
+
+        $response = $this->get(route('unsubscription', $event->id));
+
+        $this->assertNotContains($user->id, $event->user);
+        $response->assertRedirect('home');
+    }
+
+    public function test_user_cant_subscribe_to_event_when_outdated() {
+        $this->withExceptionHandling();
+
+        $event = Event::factory()->create(["past_event" => true]);
+        $user = User::factory()->create();
+
+        Auth::login($user);
+        $userLogged = Auth::user();
+
+        $this->actingAs($userLogged);
+
+        $response = $this->get(route('subscription', $event->id));
+
+        $response->assertRedirect('home');
+        $this->assertNotContains($user->id, $event->user);
     }
 }
 
