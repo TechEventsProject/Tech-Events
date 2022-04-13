@@ -34,7 +34,7 @@ Route::get('/create', [EventController::class, 'create'])->name('create')->middl
 Route::get('/show/{id}', [EventController::class, 'show'])->name('show');
 Route::get('/past_event', [EventController::class, 'past_event'])->name('past_event');
 
-//subscription unsubscription
+//subscribe unsubscribe
 
 Route::get('/sub/{id}', [EventController::class, 'subscribe'])->name('subscribe')->middleware('auth');
 Route::get('/unsub/{id}', [EventController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');

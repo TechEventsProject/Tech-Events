@@ -105,7 +105,7 @@ class EventController extends Controller
         return view('past_event', compact('past_event'));
     }
 
-    //-----------Subscription------------
+    //-----------subscribe------------
 
     public function subscribe($id) 
     {

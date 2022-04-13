@@ -5,9 +5,9 @@
     @foreach ($myEventUser as $event) 
     <p class="text-center text-2xl text-white sm: text-lg">{{$event->name}}</p>
     <img class="h-full w-full sm:h-100 w-100" src="{{$event->image}}" alt="events">
-    <a href="{{route('unsubscription', ['id'=>$event->id])}}">
+    <a href="{{route('unsubscribe', ['id'=>$event->id])}}">
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            <p>Unsubscription</p>
+            <p>Unsubscribe</p>
         </button>
     </a>
     @endforeach

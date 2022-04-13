@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
-class EventSubscriptionTest extends TestCase
+class EventsubscribeTest extends TestCase
 {
     /**
     * A basic feature test example.
@@ -58,7 +58,7 @@ class EventSubscriptionTest extends TestCase
 
         $this->assertEquals($user->id, $event->user[0]->id);
 
-        $response = $this->get(route('unsubscription', $event->id));
+        $response = $this->get(route('unsubscribe', $event->id));
 
         $this->assertNotContains($user->id, $event->user);
         $response->assertRedirect('home');
@@ -75,7 +75,7 @@ class EventSubscriptionTest extends TestCase
 
         $this->actingAs($userLogged);
 
-        $response = $this->get(route('subscription', $event->id));
+        $response = $this->get(route('subscribe', $event->id));
 
         $response->assertRedirect('home');
         $this->assertNotContains($user->id, $event->user);
