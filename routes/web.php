@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [EventController::class, 'index']);
+Route::get('/', [EventController::class, 'landing'])->name('landing');
 Route::get('/home', [EventController::class, 'index'])->name('home');
 
 //CRUD Events
