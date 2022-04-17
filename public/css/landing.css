@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2{
+    font-size: 6rem;
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+    padding-left: 3rem;
+}
+
+#bottom{
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+
+#title{
+    position: absolute;
+    margin-bottom: 30rem;
+}
