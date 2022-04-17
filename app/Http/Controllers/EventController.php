@@ -143,6 +143,6 @@ class EventController extends Controller
 
     public function landing(){
         $events = Event::orderBy('id', 'desc')->simplePaginate(4);
-        return view('home', compact('events'));
+        return view('landing', compact('events'));
     }
 }
