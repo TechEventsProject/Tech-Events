@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --primary: #94db93;
+    --secondary: #69c4a0;
+    --white: #fffdff;
+    --black: #000A12;
+}
+
 *{
     font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: var(--black);
 }
 
 h2{
@@ -20,6 +31,14 @@ h2{
 }
 
 #title{
-    position: absolute;
+    /* position: absolute; */
     margin-bottom: 30rem;
+}
+
+#box{
+    background-color: var(--primary);
+}
+
+#seeMore{
+    background-color: var(--primary);
 }
