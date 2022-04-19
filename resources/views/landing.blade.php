@@ -24,18 +24,18 @@
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
 
-<div>
-    <div id="title" class="text-white m-0 .p-0 font-bold content-center relative flex-start p-16 max-w-md" >
+<div class="mt-0">
+    <div id="title" class="text-white m-0 .p-0 font-bold content-center relative p-16 max-w-md" >
         <h2 id="top" class="m-0 absolute z{2}">TECH </h2>
         <h2 id="bottom" class="z{1} absolute m-0 top-24 pb-12">TECH </h2>
     </div>
-</div>
+
 
 
 <section class="slider">
-    <div class="m-20 flex justify-center">
+    <div class="m-14 flex justify-center ">
         @foreach ($events as $event)
-        <div class="rounded-full bg-[#94DB93] m-4  w-44 h-72 overflow-hidden pt-9 text-white  mt-56">
+        <div class="rounded-full bg-[#94DB93] m-4  w-44 h-72 overflow-hidden text-white  ">
             <p class="flex justify-center font-bold text-center text-sm pt-4">{{$event->name}}</p>
             <p class="flex justify-center">{{$event->date_and_time}}</p>
             <img class="pt-20 w-500 h-500" src="{{$event->image}}" alt="events">
@@ -44,17 +44,23 @@
     </div>
 </section>
 
+<section class="m-4">
+    <div>
+        <p class="text-[#FFFDFF] pb-4 font-light text-center max-w-[80%] text-xs"> 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eos in quod esse explicabo quae amet cumque obcaecati libero aut. Modi eaque libero debitis a repellat doloribus! Blanditiis, officia ducimus!</p>
+    </div>
 
-<div>
-    <a href="{{route('home', ['id' => $event->id])}}">
-        <button id="button" type="button" class="rounded-3xl bg-[#69C4A0]text-white m-0 font-bold py-2 px-20 ">
-            <p>see more</p>
-        </button>
-    </a>
-</div>
+    <div >
+        <a href="{{route('home', ['id' => $event->id])}}">
+            <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] text-white font-bold py-2 px-20 ">
+                <p>see more</p>
+            </button>
+        </a>
+    </div>
+</section>
 
     @endsection
-
+</div>
 
 
 
