@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/', [EventController::class, 'index']);
 Route::get('/home', [EventController::class, 'index'])->name('home');
 
-//CRUD Events
+//-----CRUD Events-----
 
 Route::delete('/delete/{id}', [EventController::class, 'destroy'])->name('delete')->middleware('auth','isAdmin');
 Route::get('/edit/{id}', [EventController::class, 'edit'])->name('edit')->middleware('auth','isAdmin');
@@ -35,9 +35,13 @@ Route::get('/create', [EventController::class, 'create'])->name('create')->middl
 Route::get('/show/{id}', [EventController::class, 'show'])->name('show');
 Route::get('/past_event', [EventController::class, 'past_event'])->name('past_event');
 
-//subscribe unsubscribe
+//-----Subscribe/Unsubscribe-----
 
 Route::get('/sub/{id}', [UserController::class, 'subscribe'])->name('subscribe')->middleware('auth');
 Route::get('/unsub/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
 
-Route::get('/my_events',[UserController::class,'my_events'])->name('my_events')->middleware('auth');
+Route::get('/my_events',[UserController::class, 'my_events'])->name('my_events')->middleware('auth');
+
+
+//HIGHLIGHTED TEST
+Route::get('/highlighted', [EventController::class, 'highlighted'])->name('highlighted');

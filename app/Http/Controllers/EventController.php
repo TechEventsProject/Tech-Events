@@ -105,9 +105,24 @@ class EventController extends Controller
         return redirect()->route('home');
     }
     
-    public function pastEvent()
+    // public function pastEvent()
+    // {
+    //     $events = Event::where('past_event', '=', 1);
+    //     return view('past_event', compact('past_event'));
+    // }
+
+    public function highlighted()
     {
-        $events = Event::where('past_event', '=', 1);
-        return view('past_event', compact('past_event'));
+        $highlighted_events = [];
+        $events = Event::all();
+
+        foreach($events as $event){
+            if($event->highlighted) {
+                array_push($highlighted_events, $event);
+            }
+        }
+
+        return view('highlighted', compact('highlighted_events'));
     }
 }
+
