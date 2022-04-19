@@ -105,7 +105,7 @@ class EventController extends Controller
         return view('past_event', compact('past_event'));
     }
 
-    //-----------subscribe------------
+    //-----------SUBSCRIPTION------------
 
     public function subscribe($id) 
     {
@@ -126,6 +126,8 @@ class EventController extends Controller
 
         return redirect()->route('home');
     }
+
+    //----------MY EVENTS----------
 
     public function my_events() 
     {
