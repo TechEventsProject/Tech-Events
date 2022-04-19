@@ -24,7 +24,7 @@
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
 
-<div class="mt-0">
+<div>
     <div id="title" class="text-white m-0 .p-0 font-bold content-center relative p-16 max-w-md" >
         <h2 id="top" class="m-0 absolute z{2}">TECH </h2>
         <h2 id="bottom" class="z{1} absolute m-0 top-24 pb-12">TECH </h2>
@@ -44,13 +44,13 @@
     </div>
 </section>
 
-<section class="m-4">
+<section class="">
     <div>
         <p class="text-[#FFFDFF] pb-4 font-light text-center max-w-[80%] text-xs"> 
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eos in quod esse explicabo quae amet cumque obcaecati libero aut. Modi eaque libero debitis a repellat doloribus! Blanditiis, officia ducimus!</p>
     </div>
 
-    <div >
+    <div class=" ">
         <a href="{{route('home', ['id' => $event->id])}}">
             <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] text-white font-bold py-2 px-20 ">
                 <p>see more</p>
@@ -61,6 +61,4 @@
 
     @endsection
 </div>
-
-
 

@@ -5414,7 +5414,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 module.exports = {
   content: ['*.blade.php'],
   theme: {
-    extend: {}
+    colors: {
+      'primary': '#94DB93',
+      'white': '#FFFDFF',
+      'black': '#000A12',
+      'secondary': '#69C4A0'
+    }
   },
   plugins: []
 };
