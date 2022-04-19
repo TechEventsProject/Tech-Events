@@ -104,4 +104,3 @@
     </div>
 </body>
 </html>
-<!-- grid grid-cols-6 gap-8 flex justify-center -->

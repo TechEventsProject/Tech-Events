@@ -22,7 +22,7 @@ h2{
     display: flex;
     justify-content: flex-start;
     background-color: transparent;
-    padding-left: 3rem;
+    /* padding-left: 3rem; */
 }
 
 #bottom{
@@ -42,9 +42,24 @@ h2{
 }
 
 #button{
-    background-color: var(--primary);
+    background-color: var(--secondary);
+    display: flex;
+    /* padding-bottom: 3rem; */
+    border-radius: 10rem;
+}
+
+.slider{
     display: flex;
 
-    border-radius: 10rem;
+    max-width: 500px;
     
+    overflow-x: scroll;
+    scroll-snap-type: x
+    mandatory;
+
+}
+
+.slider img {
+    object-fit: cover;
+    scroll-snap-align: center;
 }
