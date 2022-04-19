@@ -37,8 +37,14 @@ h2{
 
 #box{
     background-color: var(--primary);
+    margin: 5rem;
+    margin-top: 20rem;
 }
 
-#seeMore{
+#button{
     background-color: var(--primary);
+    display: flex;
+
+    border-radius: 10rem;
+    
 }

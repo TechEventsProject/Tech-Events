@@ -96,9 +96,12 @@
         </nav>
     </div>
     <div>
-        <main class="flex flex-center">
+        <main class="grid grid-cols m-0">
+            
+
             @yield('content')
         </main>
     </div>
 </body>
 </html>
+<!-- grid grid-cols-6 gap-8 flex justify-center -->
