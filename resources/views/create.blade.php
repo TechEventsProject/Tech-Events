@@ -17,6 +17,14 @@
             <input type="file" name="image" class="-z-1 absolute opacity-0" id="upload-image">
                     
             <input type="text" name="location" class="rounded-3xl text-center w-64 h-11" placeholder="Location">
+
+            <!-- HIGHLIGHT CHECKBOX -->
+            <div class="flex items-center form-check">
+                <input class="form-check-input appearance-none h-6 w-6 rounded-sm checked:bg-[#94DB93] focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer switch-input" type="checkbox" id="checkbox" name="highlighted">
+                <label class="form-check-label inline-block text-white" for="checkbox">Highlighted</label>
+            </div>
+
+
             <div class="flex justify-center gap-2">
                 <button class="h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold" type="submit" onclick="return confirm('Confirm?')">Create</button>
                 <a href="{{route('home')}}">

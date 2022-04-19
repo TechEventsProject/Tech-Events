@@ -14,6 +14,12 @@
             <textarea rows="10" cols="25" name="description" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Description">{{$event->description}}</textarea>
             <input type="text" name="image" value="{{$event->image}}" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Image (Url)">
             <input type="text" name="location" value="{{$event->location}}" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Location">
+
+            <div class="flex items-center form-check">
+                <input class="form-check-input appearance-none h-6 w-6 rounded-sm checked:bg-[#94DB93] focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer switch-input" type="checkbox" id="checkbox" name="highlighted" {{ ($event->highlighted) ? "checked" : ""}}>
+                <label class="form-check-label inline-block text-white" for="checkbox">Highlighted</label>
+            </div>
+
             <div class="flex justify-center gap-2">
                 <button class="h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold" type="submit" onclick="return confirm('validate? {{$event->name}}')">Edit</button>
                 <a href="{{route('home')}}">

@@ -40,7 +40,8 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
-        $newEvent = request()->except('_token');
+        $newEvent = request()->except(['_token', 'highlighted']);
+        $newEvent['highlighted'] = $request-> boolean('highlighted');
         Event::create($newEvent);
         return redirect()->route('home'); 
 
@@ -83,7 +84,11 @@ class EventController extends Controller
     {
         //
         $changeEvent = request()->except(['_token', '_method']);
+        $changeEvent['highlighted'] = $request-> boolean('highlighted');
+        
         Event::where('id', '=', $id)->update($changeEvent);
+        //dd($changeEvent);
+        
         return redirect()->route('home');
     }
 
@@ -100,7 +105,8 @@ class EventController extends Controller
         return redirect()->route('home');
     }
     
-    public function pastEvent(){
+    public function pastEvent()
+    {
         $events = Event::where('past_event', '=', 1);
         return view('past_event', compact('past_event'));
     }
