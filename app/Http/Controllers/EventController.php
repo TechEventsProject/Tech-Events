@@ -55,7 +55,9 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        return view('show', compact('event'));
+        $users = count($event->user()->get());
+
+        return view('show', compact(['event', 'users']));
     }
 
     /**
@@ -83,6 +85,7 @@ class EventController extends Controller
     {
         //
         $changeEvent = request()->except(['_token', '_method']);
+
         Event::where('id', '=', $id)->update($changeEvent);
         return redirect()->route('home');
     }
