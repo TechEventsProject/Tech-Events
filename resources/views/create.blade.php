@@ -14,7 +14,7 @@
             <textarea rows="10" cols="25" name="description" class="rounded-3xl text-center w-64 h-11 pl-6 pr-6" placeholder="Description"></textarea> 
                     
             <label for="upload-image" class="rounded-3xl text-center w-64 h-11 text-slate-400 bg-white">Upload Image</label>
-            <!-- <input type="file" name="image" class="-z-1 absolute opacity-0" id="upload-image"> -->
+            <input type="file" name="image" class="-z-1 absolute opacity-0" id="upload-image">
                     
             <input type="text" name="location" class="rounded-3xl text-center w-64 h-11" placeholder="Location">
             <div class="flex justify-center gap-2">

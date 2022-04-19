@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -36,7 +37,7 @@ Route::get('/past_event', [EventController::class, 'past_event'])->name('past_ev
 
 //subscribe unsubscribe
 
-Route::get('/sub/{id}', [EventController::class, 'subscribe'])->name('subscribe')->middleware('auth');
-Route::get('/unsub/{id}', [EventController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
+Route::get('/sub/{id}', [UserController::class, 'subscribe'])->name('subscribe')->middleware('auth');
+Route::get('/unsub/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
 
-Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');
+Route::get('/my_events',[UserController::class,'my_events'])->name('my_events')->middleware('auth');
