@@ -6,7 +6,7 @@
                 <h2 class="text-white bg-transparent">{{$event->speaker}}</h2>
                 <h2 class="absolute top-[25%] z-[-1] stroke bg-transparent">{{$event->speaker}}</h2>
         </div>
-        <section class="w-[85%] h-[22rem] bg-[url('{{ $event->image }}')] rounded-[105px] p-10 bg-cover bg-no-repeat bg-center"></section>
+        <section class="w-[85%] h-[22rem] bg-[url('{{ $event->image }}')] rounded-[105px] p-10 bg-cover bg-no-repeat bg-center lg:w-[40%] lg:h-[30rem]"></section>
         <div id="info" class="text-[#FFFDFF] w-[85%] lg:w-[60%] mt-10 mb-3">
                 <h1 class="text-center font-bold font-['Poppins'] uppercase text-[20px] mb-3">{{ $event->name }}</h1>
                 <p class="mb-3 font['Montserrat'] text-[14px] text-center">{{ $event->description }}
@@ -26,11 +26,21 @@
                         <p class="font-['Poppins'] font-black">{{$users}}/{{$event->max_participants}}</p>
                 </div>
         </div>
-        <form action="{{ route('sub', $event->id) }}" method="post">
-                <button class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
+        @if(!Auth::user())
+        <button onclick="window.location = `{{ route('login') }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
+                Login
+        </button>
+        @else
+                @if ($event->user->contains(Auth::user()->id))
+                <button onclick="window.location = `{{ route('unsubscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
+                        Cancel Subscription
+                </button>
+                @else
+                <button onclick="window.location = `{{ route('subscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Join the Event
                 </button>
-        </form>
+                @endif
+        @endif
         <a href="{{URL::previous()}}" class="self-start mt-5">
                 <i class="fa-solid fa-arrow-left text-white text-3xl pl-4"></i>
         </a>
