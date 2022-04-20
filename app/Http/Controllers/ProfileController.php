@@ -47,7 +47,9 @@ class ProfileController extends Controller
      */
     public function show(User $user)
     {   
-        return view('profile', compact(['user']));
+        $user = Auth::user();
+        $myUser = User::find($user);
+        return view('my_profile', compact(['myUser']));
     }
 
     /**
@@ -77,7 +79,7 @@ class ProfileController extends Controller
         User::where('id', '=', $id)->update($updateProfile);
         // $profile = User::find($id);
         // $profile->update($request->all());
-        return redirect()->route('profile');
+        return redirect()->route('my_profile');
     }
 
     /**

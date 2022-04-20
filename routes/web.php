@@ -47,8 +47,10 @@ Route::get('/my_events',[UserController::class, 'my_events'])->name('my_events')
 //HIGHLIGHTED TEST
 Route::get('/highlighted', [EventController::class, 'highlighted'])->name('highlighted');
 
+//------My Profile------
 
-Route::get('/profile', [ProfileController::class, 'edit'])->name('profile')->middleware('auth');
+Route::get('/my_profile', [ProfileController::class, 'show'])->name('my_profile')->middleware('auth');
+Route::get('/edit_profile', [ProfileController::class, 'edit'])->name('edit_profile')->middleware('auth');
 Route::patch('profile_update/{id}', [ProfileController::class, 'update'])->name('profile_update')->middleware('auth');
 
 
