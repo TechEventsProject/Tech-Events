@@ -76,6 +76,9 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
+                    <a class="dropdown-item" href="{{ route('profile') }}">
+                        <button type="submit">{{ __('My Profile') }}</button>
+                        </a>
                         <a class="dropdown-item" href="{{ route('my_events') }}">
                         <button type="submit">{{ __('My Events') }}</button>
                         </a>
