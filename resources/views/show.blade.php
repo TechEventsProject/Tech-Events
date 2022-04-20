@@ -26,9 +26,11 @@
                         <p class="font-['Poppins'] font-black">{{$users}}/{{$event->max_participants}}</p>
                 </div>
         </div>
-        <button class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
-                Join the Event
-        </button>
+        <form action="{{ route('sub', $event->id) }}" method="post">
+                <button class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
+                        Join the Event
+                </button>
+        </form>
         <a href="{{URL::previous()}}" class="self-start mt-5">
                 <i class="fa-solid fa-arrow-left text-white text-3xl pl-4"></i>
         </a>

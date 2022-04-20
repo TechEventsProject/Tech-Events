@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
-class EventsubscribeTest extends TestCase
+class EventSubscriptionTest extends TestCase
 {
     /**
     * A basic feature test example.

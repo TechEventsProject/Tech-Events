@@ -247,7 +247,7 @@ class CrudTest extends TestCase
 
         $this->actingAs($admin);
 
-        $event = Event::factory()->create();
+        $event = Event::factory()->create(["highlighted" => 0]);
 
         $this->assertCount(1, Event::all());
 
@@ -265,7 +265,9 @@ class CrudTest extends TestCase
 
         $this->actingAs($user);
 
-        $event = Event::factory()->create();
+        $event = Event::factory()->create(["highlighted" => 0]);
+
+        $this->assertEquals(Event::first()->highlighted, 0);
 
         $this->assertCount(1, Event::all());
 
