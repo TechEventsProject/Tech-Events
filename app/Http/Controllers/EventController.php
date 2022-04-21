@@ -117,7 +117,7 @@ class EventController extends Controller
 
         $user->event()->attach($event);
 
-        return redirect()->route('home');
+        return redirect()->route(URL::previous());
     }
 
     public function unsubscribe($id) 
