@@ -91,19 +91,25 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
+                        <a class="dropdown-item" href="{{ route('my_profile') }}">
+                            <button type="button">{{ __('My Profile') }}</button>
+                        </a>
                         <a class="dropdown-item" href="{{ route('my_events') }}">
-                        <button type="submit">{{ __('My Events') }}</button>
+                            <button type="button">{{ __('My Events') }}</button>
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                         </form>
                     </div>
-                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> <!--Img de usuario MODIFICAR-->
+                    <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>-->
+                    <div class="bg-[#94DB93] rounded-full">
+                        <img class="rounded-full w-8 h-8 m-0 object-cover" src="{{Auth::user()->avatar}}" alt="avatar">
+                    </div>
                 </div>
             </ul>
         @endguest

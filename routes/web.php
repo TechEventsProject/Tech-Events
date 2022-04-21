@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,3 +46,11 @@ Route::get('/my_events',[UserController::class, 'my_events'])->name('my_events')
 
 //HIGHLIGHTED TEST
 Route::get('/highlighted', [EventController::class, 'highlighted'])->name('highlighted');
+
+//------My Profile------
+
+Route::get('/my_profile', [ProfileController::class, 'show'])->name('my_profile')->middleware('auth');
+Route::get('/edit_profile', [ProfileController::class, 'edit'])->name('edit_profile')->middleware('auth');
+Route::patch('profile_update/{id}', [ProfileController::class, 'update'])->name('profile_update')->middleware('auth');
+
+

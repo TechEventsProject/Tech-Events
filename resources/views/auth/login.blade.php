@@ -2,6 +2,7 @@
 
 @section('content')
     <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4 items-center col-span-2 h-max mt-6">
+    <!-- md:h-screen w-screen bg-[url(asset('img/bg_desktop.png'))] -->
     @csrf
     <section class="flex flex-col gap-4 items-center w-72 h-max bg-[#69C4A0] rounded-3xl p-4">
         <li class="text-9xl list-none"><i class="fa-solid fa-circle-user bg-[#94DB93] text-white rounded-full"></i></li>
@@ -40,18 +41,18 @@
             </button>
         </div>
         <div>
-            @if (Route::has('password.request'))
+            <!-- @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}" class="text-white">
                 {{ __('Forgot Your Password?') }}
             </a>
-            @endif
+            @endif -->
         </div>
     </section>
     </form>
     <div class="flex flex-col text-white items-center justify-start col-span-2 mt-4">
         <p class="text-gray-400">Unregistered?</p>
         <a href="{{route('register')}}">
-            <p class="font-bold underline-offset-1 text-white">REGISTER HERE</p> <!--Hacer subrallado manual tailwind, no existe preset-->
+            <p class="font-bold underline-offset-1 text-white">REGISTER HERE</p>
         </a>
     </div>
     <a href="{{URL::previous()}}">
