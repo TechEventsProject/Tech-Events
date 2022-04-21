@@ -93,7 +93,7 @@
                     </div>
                     <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>-->
                     <div class="bg-[#94DB93] rounded-full">
-                        <img class="rounded-full w-[30px] h-[30px] m-0" src="{{Auth::user()->avatar}}" alt="avatar">
+                        <img class="rounded-full w-8 h-8 m-0 object-cover" src="{{Auth::user()->avatar}}" alt="avatar">
                     </div>
                 </div>
             </ul>

@@ -2,14 +2,14 @@
 @section('content')
 
 
-<section class="flex justify-center flex-col col-span-2">
+<section class="col-span-2 flex justify-center items-center flex-col h-max w-full">
     <div>
         <h1 class="text-white font-['Montserrat'] text-3xl font-bold">My Profile</h1>
     </div>
-    <div class="text-white">
+    <div class="text-white text-center p-4">
+        <img src="{{Auth::user()->avatar}}" alt="avatar" class="rounded-full h-36 w-36 object-cover">
         <p class="font-bold">Name:</p><p>{{Auth::user()->name}}</p>
         <p class="font-bold">Email:</p><p>{{Auth::user()->email}}</p>
-        <img src="{{Auth::user()->avatar}}" alt="avatar">
     </div>
     <div class="flex justify-center gap-2">
         <a href="{{route('edit_profile')}}">
