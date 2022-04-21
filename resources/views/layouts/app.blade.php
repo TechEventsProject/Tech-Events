@@ -28,7 +28,7 @@
 </head>
 
 <body class="bg-black h-screen">
-    <div id="deletePopup" class="absolute hidden w-screen h-screen z-10 bg-gray-700/50">
+    <!-- <div id="deletePopup" class="absolute hidden w-screen h-screen z-10 bg-gray-700/50">
 
     </div>
     <div id="subscribedSuccessPopup">
@@ -39,7 +39,7 @@
     </div>
     <div id="updatePopup">
 
-    </div>
+    </div> -->
     <div id="app">
         <nav>
         @guest 
