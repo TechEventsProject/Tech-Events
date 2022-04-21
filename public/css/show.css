@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+.stroke {
+    text-shadow: 0.8px  0.8px 0 #FFF, -0.8px -0.8px 0 #FFF, 0.8px -0.8px 0 #FFF, -0.8px  0.8px 0 #FFF, 0.8px  0.8px 0 #FFF;
+    color: #000A12;
+}

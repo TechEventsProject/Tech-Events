@@ -56,7 +56,9 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        return view('show', compact('event'));
+        $users = count($event->user()->get());
+
+        return view('show', compact(['event', 'users']));
     }
 
     /**
