@@ -69,7 +69,8 @@ class EventController extends Controller
     {
         //
         $event = Event::find($id);
-        return view('edit', compact('event'));
+        $user = User::find($id);
+        return view('edit', compact(['event', 'user']));
 
     }
 
@@ -84,7 +85,7 @@ class EventController extends Controller
     {
         //
         $changeEvent = request()->except(['_token', '_method']);
-        $changeEvent['highlighted'] = $request-> boolean('highlighted');
+        $changeEvent['highlighted'] = $request->boolean('highlighted');
         
         Event::where('id', '=', $id)->update($changeEvent);
         //dd($changeEvent);
