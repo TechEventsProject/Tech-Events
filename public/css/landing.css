@@ -58,10 +58,12 @@ h2{
     overflow-x: scroll;
     scroll-snap-type: x
     mandatory;
+    
 
 }
 
 .slider img {
     object-fit: cover;
     scroll-snap-align: center;
+    
 }
