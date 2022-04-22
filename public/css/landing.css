@@ -16,6 +16,7 @@
 
 body{
     background-color: var(--black);
+
 }
 
 h2{
@@ -67,3 +68,4 @@ h2{
     scroll-snap-align: center;
     
 }
+
