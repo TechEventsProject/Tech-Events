@@ -11285,12 +11285,8 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-<<<<<<< HEAD
-}
-=======
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
->>>>>>> jess
