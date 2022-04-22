@@ -33,10 +33,10 @@
 
 
 <section class="slider">
-    <div class="m-14 flex justify-center ">
+    <div class="m-14 flex justify-center lg:justify-start">
         @foreach ($events as $event)
         <div class="rounded-full bg-[#94DB93] m-4  w-44 h-72 overflow-hidden text-white  ">
-            <p class="flex justify-center font-bold text-center text-sm pt-4">{{$event->name}}</p>
+            <p class="flex justify-center font-bold text-center text-sm pt-12 pl-4 pr-4">{{$event->name}}</p>
             <p class="flex justify-center">{{$event->date_and_time}}</p>
             <img class="pt-20 w-500 h-500" src="{{$event->image}}" alt="events">
         </div>

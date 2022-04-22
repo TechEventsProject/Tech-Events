@@ -98,7 +98,6 @@
     <div>
         <main class="grid grid-cols ">
             
-
             @yield('content')
         </main>
     </div>
