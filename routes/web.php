@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [EventController::class, 'index']);
+Route::get('/', [EventController::class, 'landing'])->name('landing');
 Route::get('/home', [EventController::class, 'index'])->name('home');
 
 //-----CRUD Events-----
@@ -54,3 +54,8 @@ Route::get('/edit_profile', [ProfileController::class, 'edit'])->name('edit_prof
 Route::patch('profile_update/{id}', [ProfileController::class, 'update'])->name('profile_update')->middleware('auth');
 
 
+<<<<<<< HEAD
+=======
+Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');
+Route::get('/landing/', [EventController::class, 'landing'])->name('landing');
+>>>>>>> jess
