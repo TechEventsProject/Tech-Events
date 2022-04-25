@@ -63,8 +63,8 @@
     <div class="flex justify-center mt-4">
         <hr class="w-80 bg-white">
     </div>
-    <div class="flex justify-center flex-wrap gap-4 text-center text-gray-400 text-2xl p-4">
-        <div>
+    <div class="flex flex-col justify-center items-center gap-4 text-center text-gray-400 text-2xl p-4">
+        <div class="flex space-x-6">
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-youtube"></i>
             <i class="fa-brands fa-twitter"></i>
