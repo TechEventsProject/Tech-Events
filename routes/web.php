@@ -55,4 +55,4 @@ Route::patch('profile_update/{id}', [ProfileController::class, 'update'])->name(
 
 
 Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');
-//Route::get('/landing/', [EventController::class, 'landing'])->name('landing');
+Route::get('/landing', [EventController::class, 'landing'])->name('landing');
