@@ -24,18 +24,19 @@
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
 
-<div>
-    <div id="title" class="flex text-white m-0 .p-0 font-bold content-center self-center relative p-16 max-w-md" >
+<section class="md:flex md:justify-center md:text-center">
+    <div id="title" class="flex text-white m-0 .p-0 font-bold content-center self-center relative p-16 max-w-md  md:pd-l" >
         <h2 id="top" class="m-0 absolute z{2}">TECH </h2>
         <h2 id="bottom" class="z{1} absolute m-0 top-24 pb-12">TECH </h2>
     </div>
+</section>
 
 
 
 <section class="slider">
-    <div class="m-14 flex justify-center lg:justify-start">
+    <div class="m-14 flex justify-center">
         @foreach ($events as $event)
-        <div class="rounded-full bg-[#94DB93] m-4  w-44 h-72 overflow-hidden text-white  ">
+        <div class="rounded-full bg-[#94DB93] m-4  w-44 h-72 overflow-hidden text-white">
             <p class="flex justify-center font-bold text-center text-sm pt-12 pl-4 pr-4">{{$event->name}}</p>
             <p class="flex justify-center">{{$event->date_and_time}}</p>
             <img class="pt-16 w-500 h-500 ">
@@ -46,7 +47,7 @@
 
 <section class="">
     <div class="flex justify-center p-4">
-        <p class="text-[#FFFDFF] pb-4 font-light text-center max-w-[80%] text-xs"> 
+        <p class="text-[#FFFDFF] pb-4 font-light text-center max-w-[80%] text-xs md:max-w-[50%]"> 
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eos in quod esse explicabo quae amet cumque obcaecati libero aut. Modi eaque libero debitis a repellat doloribus! Blanditiis, officia ducimus!</p>
     </div>
 
