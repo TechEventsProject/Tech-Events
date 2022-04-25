@@ -10,7 +10,7 @@ module.exports = {
         'white':'#FFFDFF',
         'black':'#000A12',
         'secondary':'#69C4A0',
-    }
+    },
     screens: {
         'tablet': '640px',
         // => @media (min-width: 640px) { ... }

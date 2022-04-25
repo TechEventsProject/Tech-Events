@@ -51,10 +51,18 @@
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
                 space-y-9">
-                    <li class="hover:bg-[#69C4A0]">About Us</li>
+                <a href="{{route('home')}}">
+                    <li>About Us</li>
+                </a>
+                <a href="">
                     <li>Masterclass</li>
+                </a>
+                <a href="">
                     <li>Workshops</li>
+                </a>
+                <a href="">
                     <li>Webinars</li>
+                </a>
                 </ul>
             </div>
         <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
