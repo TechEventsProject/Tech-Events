@@ -53,6 +53,4 @@ Route::get('/my_profile', [ProfileController::class, 'show'])->name('my_profile'
 Route::get('/edit_profile', [ProfileController::class, 'edit'])->name('edit_profile')->middleware('auth');
 Route::patch('profile_update/{id}', [ProfileController::class, 'update'])->name('profile_update')->middleware('auth');
 
-
-Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');
 Route::get('/landing', [EventController::class, 'landing'])->name('landing');
