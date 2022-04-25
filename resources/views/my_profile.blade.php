@@ -9,8 +9,8 @@
     <div class="flex flex-col items-center justify-center text-center gap-4 w-72 h-max bg-[#69C4A0] rounded-3xl p-12">
         <img src="{{Auth::user()->avatar}}" alt="avatar" class="rounded-full h-36 w-36 object-cover border-2 border-white">
         <div class="flex flex-col gap-2 align-middle">
-            <p class="font-bold">Name:</p><p class="bg-white rounded-3xl text-center w-52 h-9">{{Auth::user()->name}}</p>
-            <p class="font-bold">Email:</p><p class="bg-white rounded-3xl text-center w-52 h-9">{{Auth::user()->email}}</p>
+            <p class="font-bold">Name:</p><p class="p-2 bg-white text-opacity-60 rounded-3xl text-center w-52 h-9">{{Auth::user()->name}}</p>
+            <p class="font-bold">Email:</p><p class="bg-white p-2 rounded-3xl text-center w-52 h-9">{{Auth::user()->email}}</p>
         </div>
     </div>
     <div class="flex justify-center gap-2">

@@ -126,7 +126,9 @@
                         @csrf
                         </form>
                     </div>
+                    <a href="{{route('my_profile')}}">
                     <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                    </a>
                 </div>
             </ul>
         @endguest
