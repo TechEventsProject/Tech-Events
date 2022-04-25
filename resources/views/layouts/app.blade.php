@@ -68,7 +68,6 @@
             <a href="{{route('home')}}">
                 <li class="text-white tex-lg">TECH EVENTS</li>
             </a>
-        <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
             <div class="flex items-center">
                 @if(Route::has('login'))
                 <a href="{{ route('login') }}">
@@ -80,7 +79,6 @@
                     <li class="mr-3 text-white font-['Montserrat']">{{ __('Register') }}</li>
                 </a>
                 @endif
-                <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
             </div>
             @else
             <ul class="container flex justify-between p-6 items-center" >
@@ -128,10 +126,7 @@
                         @csrf
                         </form>
                     </div>
-                    <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>-->
-                    <div class="bg-[#94DB93] rounded-full">
-                        <img class="rounded-full w-8 h-8 m-0 object-cover" src="{{Auth::user()->avatar}}" alt="avatar">
-                    </div>
+                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
                 </div>
             </ul>
         @endguest
@@ -142,16 +137,5 @@
             @yield('content')
         </main>
     </div>
-    <footer>
-        <div class="flex justify-center mt-4">
-            <hr class="w-80 bg-white">
-        </div>
-        <div class="flex justify-center flex-wrap gap-4 text-center text-gray-400 text-2xl p-4">
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-youtube"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <p class="text-sm w-80">Etiam Massa tincidunt a sit tristique nec nibh cursus et viverra. Sit nec </p>
-        </div>
-    </footer>
 </body>
 </html>
