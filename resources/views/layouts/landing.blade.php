@@ -75,7 +75,6 @@
                     <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
                         {{ Auth::user()->name }}
                     </a>
-                    <!--REDIRECCIONAR ESTO A "MY EVENTS" PAGE, AHORA ESTA IGUAL QUE LOG-OUT-->
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> 
                         <a class="dropdown-item" href="{{ route('my_profile') }}">
                             <button type="button">{{ __('My Profile') }}</button>
@@ -92,7 +91,7 @@
                         @csrf
                         </form>
                     </div>
-                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> <!--Img de usuario MODIFICAR-->
+                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
                 </div>
             </ul>
         @endguest

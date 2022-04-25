@@ -10,7 +10,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/landing.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -56,15 +55,14 @@
             </a>
         </div>
     </section>
-
-    
 </div>
+
 <footer>
     <div class="flex justify-center mt-4">
         <hr class="w-80 bg-white">
     </div>
-    <div class="flex flex-col justify-center items-center gap-4 text-center text-gray-400 text-2xl p-4">
-        <div class="flex space-x-6">
+    <div class="gap-4 text-center text-gray-400 text-2xl p-4 flex flex-col justify-center items-center">
+        <div class="space-x-6">
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-youtube"></i>
             <i class="fa-brands fa-twitter"></i>
