@@ -14,13 +14,22 @@
     <section class=" grid grid-cols-2 col-span-2 md: grid grid-cols-4">
     
     <!--Modal-->
-    <div id="overlay" class=" flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+    <!--<div id="overlay" class=" flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class=" h-[204px] w-[268px] bg-[#94DB93] align-middle items-center rounded-[68px]">
             <p class=" text-center font-[Montserrat]  text-[#FFFDFF] text-[20px] font-bold">
             join us now by creating an account
             <a href="{{ route('register') }}">“Register”</a></p>
         </div>
+    </div>-->
+
+    <div id="overlay" class=" font-[Montserrat] flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+        <div class=" h-[204px] w-[268px] bg-[#94DB93] align-middle items-center rounded-[68px]">
+            <p class=" text-center  text-[#FFFDFF] text-[16px] font-regular">
+            this can't be undone.
+            <a href="{{ route('register') }}">DELETE THIS EVENT?</a></p>
+        </div>
     </div>
+
 
     @foreach ($events as $event)
     <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
