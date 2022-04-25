@@ -16,8 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
-        $events = Event::orderBy('id', 'desc')->simplePaginate(4);
+        $events = Event::orderBy('date_and_time', 'desc')->get();
+        //$events = Event::orderBy('id', 'desc');
         return view('home', compact('events'));
     }
 
