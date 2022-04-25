@@ -12,10 +12,10 @@
             <input type="text" value="{{$user->email}}" name="email" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="E-mail">
             <input type="text" name="avatar" value="{{$user->avatar}}" class="rounded-3xl text-center w-64 h-11 pl-4 pr-4" placeholder="Image (Url)">
         </div>
-        <div class="flex justify-center gap-2">
-            <button class="h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold" type="submit" onclick="return confirm('validate?')">Update</button>
+        <div class="flex justify-center pl-8 pb-8 p-8 gap-2">
+            <button class="flex justify-center py-2 px-20 h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold " type="submit" onclick="return confirm('validate?')">Update</button>
             <a href="{{route('home')}}">
-                <button class="h-9 w-32 rounded-3xl bg-white font-['Montserrat'] font-bold" type="button">Cancel</button>
+                <button class="flex justify-center py-2 px-20 h-9 w-32 rounded-3xl bg-white font-['Montserrat'] font-bold" type="button">Cancel</button>
             </a>
         </div>
     </form>
