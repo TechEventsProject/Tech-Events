@@ -29,7 +29,7 @@
     <div id="app">
         <nav>
         @guest 
-        <!-- <ul class="container flex justify-between p-6 items-center" >
+        <ul class="container flex justify-between p-6 items-center" >
             <div class="dropdown relative">
                 <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
                     <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
@@ -42,7 +42,7 @@
                     <li>Workshops</li>
                     <li>Webinars</li>
                 </ul>
-            </div> -->
+            </div>
         <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
             <div class="flex items-center">
                 @if(Route::has('login'))
