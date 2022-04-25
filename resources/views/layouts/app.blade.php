@@ -50,22 +50,24 @@
                     <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
-                space-y-9">
-                <a href="{{route('home')}}">
-                    <li>About Us</li>
-                </a>
-                <a href="">
-                    <li>Masterclass</li>
-                </a>
-                <a href="">
-                    <li>Workshops</li>
-                </a>
-                <a href="">
-                    <li>Webinars</li>
-                </a>
+                space-x-6">
+                    <a href="{{route('home')}}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{{route('home')}}">
+                        <li>Masterclass</li>
+                    </a>
+                    <a href="{{route('home')}}">
+                        <li>Workshops</li>
+                    </a>
+                    <a href="{{route('home')}}">
+                        <li>Webinars</li>
+                    </a>
                 </ul>
             </div>
-        <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
+            <a href="{{route('home')}}">
+                <li class="text-white tex-lg">TECH EVENTS</li>
+            </a>
             <div class="flex items-center">
                 @if(Route::has('login'))
                 <a href="{{ route('login') }}">
@@ -77,23 +79,33 @@
                     <li class="mr-3 text-white font-['Montserrat']">{{ __('Register') }}</li>
                 </a>
                 @endif
-                <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
             </div>
             @else
             <ul class="container flex justify-between p-6 items-center" >
-            <div class="dropdown relative">
-                <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
-                    <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
-                    <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
-                </button>
-                <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
-                space-y-9">
-                    <li>About Us</li>
-                    <li>Masterclass</li>
-                    <li>Workshops</li>
-                    <li>Webinars</li>
-                </ul>
-            </div>
+                <div class="dropdown relative">
+                    <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
+                        <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
+                        <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
+                    </button>
+                    <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
+                    space-x-6">
+                        <a href="{{route('home')}}">
+                            <li>About Us</li>
+                        </a>
+                        <a href="{{route('home')}}">
+                            <li>Masterclass</li>
+                        </a>
+                        <a href="{{route('home')}}">
+                            <li>Workshops</li>
+                        </a>
+                        <a href="{{route('home')}}">
+                            <li>Webinars</li>
+                        </a>
+                    </ul>
+                </div>
+                <a href="{{route('home')}}">
+                    <li class="text-white tex-lg">TECH EVENTS</li>
+                </a>
                 <div class="flex items-center">
                     <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
                         {{ Auth::user()->name }}
@@ -114,10 +126,7 @@
                         @csrf
                         </form>
                     </div>
-                    <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>-->
-                    <div class="bg-[#94DB93] rounded-full">
-                        <img class="rounded-full w-8 h-8 m-0 object-cover" src="{{Auth::user()->avatar}}" alt="avatar">
-                    </div>
+                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
                 </div>
             </ul>
         @endguest
@@ -128,16 +137,5 @@
             @yield('content')
         </main>
     </div>
-    <footer>
-        <div class="flex justify-center mt-4">
-            <hr class="w-80 bg-white">
-        </div>
-        <div class="flex justify-center flex-wrap gap-4 text-center text-gray-400 text-2xl p-4">
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-youtube"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <p class="text-sm w-80">Etiam Massa tincidunt a sit tristique nec nibh cursus et viverra. Sit nec </p>
-        </div>
-    </footer>
 </body>
 </html>
