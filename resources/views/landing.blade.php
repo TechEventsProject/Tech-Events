@@ -2,27 +2,6 @@
 
 @section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- Scripts -->
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet"> 
-
-    <!-- Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
-</head>
-
 <div>
     <div id="title" class="flex justify-center text-white m-0 .p-0 font-bold relative h-20" >
         <h2 id="top" class="m-0 absolute z{2}">TECH </h2>
