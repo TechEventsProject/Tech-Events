@@ -1,2 +1,2 @@
 require('./bootstrap');
-require('./tailwind.config.js');
+//require('./tailwind.config.js');
