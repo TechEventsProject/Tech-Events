@@ -13,22 +13,44 @@
     </div>
     <section class=" grid grid-cols-2 col-span-2 md: grid grid-cols-4">
     
-    <!--Modal-->
-    <!--<div id="overlay" class=" flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
-        <div class=" h-[204px] w-[268px] bg-[#94DB93] align-middle items-center rounded-[68px]">
-            <p class=" text-center font-[Montserrat]  text-[#FFFDFF] text-[20px] font-bold">
-            join us now by creating an account
-            <a href="{{ route('register') }}">“Register”</a></p>
-        </div>
-    </div>-->
+    <!--Modal 1.0v-->
 
-    <div id="overlay" class=" font-[Montserrat] flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+<!-- 
+    @if(Auth::check() && Auth::user()->isAdmin())
+    <div id="overlay" class=" font-[Montserrat] text-[#FFFDFF] text-[20px] flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class=" h-[204px] w-[268px] bg-[#94DB93] align-middle items-center rounded-[68px]">
-            <p class=" text-center  text-[#FFFDFF] text-[16px] font-regular">
+            <p class=" text-center text-[16px] font-regular">
             this can't be undone.
-            <a href="{{ route('register') }}">DELETE THIS EVENT?</a></p>
+            <p>DELETE THIS EVENT?</p></p>
         </div>
     </div>
+    @endif -->
+
+    <!-- MODAL 2.0v -->
+
+    <!-- <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+        <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
+            
+            <div class="flex flex-col text-center ">
+                <p class=" flex flex-col text-[16px] font-regular">
+                this can't be undone.
+                <p class="font-bold">DELETE THIS EVENT?</p></p>
+            </div>
+
+            <div class="flex flex-row space-x-[36px] font-bold ">
+
+            <button id="" class="  rounded-[28px] items-center bg-[#FFFDFF] h-[64px] w-[80px] text-[#94DB93]">
+                <p>NAH</p>
+            </button>
+
+            <button type="submit" class=" rounded-[28px] align-middle  bg-[#69C4A0] h-[64px] w-[80px] ">
+                <p>YES</p>
+            </button>
+
+
+            </div>    
+        </div>      
+    </div> -->
 
 
     @foreach ($events as $event)
@@ -45,20 +67,47 @@
         <!--admin crud-->
         @if(Auth::check() && Auth::user()->isAdmin())
                     <div class=" flex justify-center gap-2 relative -bottom-14 ">
-                            <form action="{{route('delete', ['id' => $event->id])}}" method="post" onclick="return confirm('Are you sure?')">
-                            @method('delete')
-                            @csrf
-                            <button type="submit">
+                            
+                            <button id="delete-btn-vsg">
                                 <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                             </button>
-                            </form>
+
                             <a href="{{route('edit', ['id' => $event->id])}}">
                                 <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                             </a>
+                            
                             <a href="">
                                 <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                             </a>
                         </div>
+
+        
+    <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+        <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
+            
+            <div class="flex flex-col text-center ">
+                <p class=" flex flex-col text-[16px] font-regular">
+                this can't be undone.
+                <p class="font-bold">DELETE THIS EVENT?</p></p>
+            </div>
+
+            <div class="flex flex-row space-x-[36px] font-bold ">
+                
+            <button class="  rounded-[28px] items-center bg-[#FFFDFF] h-[64px] w-[80px] text-[#94DB93]">
+                <p>NAH</p>
+            </button>
+
+            <form action="{{route('delete', ['id' => $event->id])}}" method="post" onclick="return confirm('Are you sure?')">
+            @method('delete')
+            @csrf
+            <button type="submit" class=" rounded-[28px] align-middle  bg-[#69C4A0] h-[64px] w-[80px] ">
+                <p>YES</p>
+            </button>
+            </form>
+
+            </div>    
+        </div>      
+    </div>
 
         <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
         @else
@@ -78,9 +127,9 @@
     ('DOMContentLoaded', () =>{
         const overlay = document.querySelector
         ('#overlay')
-        const joinBtn = document.querySelector
-        ('#join-btn')
-        joinBtn.addEventListener ('click', () =>{
+        const deleteVsg = document.querySelector
+        ('#delete-btn-vsg')
+        deleteVsg.addEventListener ('click', () =>{
             overlay.classList.remove('hidden')
         })
         overlay.addEventListener ('click', () =>{
