@@ -22,7 +22,7 @@
 
             <div class="flex justify-center gap-2">
                 <button class="h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold" type="submit" onclick="return confirm('validate? {{$event->name}}')">Edit</button>
-                <a href="{{route('home')}}">
+                <a href="{{ URL::previous() }}">
                     <button class="h-9 w-32 rounded-3xl bg-white font-['Montserrat'] font-bold" type="button">Cancel</button>
                 </a>
             </div>

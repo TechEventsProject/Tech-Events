@@ -56,7 +56,9 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
-        return view('show', compact('event'));
+        $users = count($event->user()->get());
+
+        return view('show', compact(['event', 'users']));
     }
 
     /**
@@ -124,6 +126,11 @@ class EventController extends Controller
         }
 
         return view('highlighted', compact('highlighted_events'));
+    }
+
+    public function landing(){
+        $events = Event::orderBy('id', 'desc')->simplePaginate(4);
+        return view('landing', compact('events'));
     }
 }
 

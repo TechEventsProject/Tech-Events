@@ -11,7 +11,7 @@
 @endif
 @foreach ($events as $event)
 
-<div class="flex justify-center flex-column p-2 md:p-20">
+<div class="rounded-full bg-primary m-1 bg-sky-800 w-44 h-72 overflow-hidden flex-column p-2 md:p-20">
     <p class="text-center text-2xl text-white sm: text-lg">{{$event->name}}</p>
     <img class="h-full w-full sm:h-100 w-100" src="{{$event->image}}" alt="events">
     <section>

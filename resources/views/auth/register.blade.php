@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.loginregister')
 
 @section('content')
 <form method="POST" action="{{ route('register') }}" class="flex flex-col gap-4 items-center col-span-2">

@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class Usercontroller extends Controller
 {
@@ -18,7 +19,7 @@ class Usercontroller extends Controller
 
         $user->event()->attach($event);
 
-        return redirect()->route('home');
+        return redirect()->route('show', ['id' => $event->id ]);
     }
 
     public function unsubscribe($id) 
