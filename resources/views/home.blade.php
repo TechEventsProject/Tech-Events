@@ -11,7 +11,7 @@
         <h2 id="top" class=" m-0 absolute z{2}">MASTERCLASS </h2>
         <h2 id="bottom" class=" z{1} absolute m-0 top-24 pb-12">MASTERCLASS </h2>
     </div>
-    <section class=" grid grid-cols-2 md:gap-8 place-items-center gap-y-[54px] bg-[#000A12] col-span-2">
+    <section class=" grid grid-cols-2 col-span-2 md: grid grid-cols-4">
     <!--Modal-->
     <div id="overlay" class=" flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class=" h-[204px] w-[268px] bg-[#94DB93] align-middle items-center rounded-[68px]">
