@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <section class="md:flex md:justify-center md:text-center col-span-2 w-full">
+    <section class="flex justify-center text-center col-span-2 w-full">
             <div id="title" class="flex text-white m-0 px-10 col-span-2 font-bold relative p-16 max-w-md  md:pd-l" >
                 <h2 id="top" class="m-0 absolute z{2}">MY PROFILE </h2>
                 <h2 id="bottom" class="z{1} absolute   m-0 top-20 pb-12">MY PROFILE </h2>
             </div>
     </section>
-
 
     <form action="{{ route('profile_update', $user->id) }}" method="post">
         @method('patch')
