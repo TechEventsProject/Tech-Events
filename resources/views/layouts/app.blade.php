@@ -108,7 +108,11 @@
                     </div>
                     <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>-->
                     <div class="bg-[#94DB93] rounded-full">
+                        @if(Auth::user()->avatar)
                         <img class="rounded-full w-8 h-8 m-0 object-cover" src="{{Auth::user()->avatar}}" alt="avatar">
+                        @else
+                        <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                        @endif
                     </div>
                 </div>
             </ul>
