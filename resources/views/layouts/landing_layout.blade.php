@@ -107,8 +107,7 @@
         </nav>
     </div>
     <div>
-        <main class="grid grid-cols ">
-            
+        <main>
             @yield('content')
         </main>
     </div>
