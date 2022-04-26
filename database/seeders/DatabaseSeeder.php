@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
        /*  Event::factory()->create(['name' => 'Suda de Ubuntu', 'speaker'=>'Maria DB', 'date_and_time'=>'2022-03-20 08:00:00', 'max_participants'=> 15, 'description'=>'Ubuntu ninja workshop', 'image'=>'https://images.pexels.com/photos/8727412/pexels-photo-8727412.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'location'=>'Depot Lab', 'created_at'=>'2022-04-01 08:23:29', 'updated_at'=>'2022-04-01 08:23:29', 'past_event'=> true, 'highlighted'=> false]); */
         User::factory()->create(['name' => 'user1', 'email' => 'user1@user.com']);
         User::factory()->create(['name' => 'admin', 'email' => 'admin@user.com', 'isAdmin' => true]);
-
-
+        User::factory()->create(['name' => 'bigbae', 'email' => 'bigbae@bigbae.com']);
+        User::factory()->create(['name' => 'admin-bigbae', 'email' => 'admin@bigbae.com', 'isAdmin' => true]);
     }
 }

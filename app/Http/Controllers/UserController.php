@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 
-class Usercontroller extends Controller
+class UserController extends Controller
 {
     //-----------SUBSCRIPTION------------
 
@@ -16,6 +16,10 @@ class Usercontroller extends Controller
     {
         $user=User::find(Auth::id());
         $event=Event::find($id);
+
+        if ($user->event->contains($event) || $event->past_event) {
+            return redirect()->route('show', ['id' => $event->id]);
+        }
 
         $user->event()->attach($event);
 
