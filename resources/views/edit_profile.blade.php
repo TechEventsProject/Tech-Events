@@ -1,21 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
-    <head>
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet"> 
-
-        <!-- Styles -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="{{ asset('css/editProfile.css') }}" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
-    </head>
-    
-=======
->>>>>>> 3688e4730f89c8b0b2176b47d13ffda68d0cf692
     <section class="md:flex md:justify-center md:text-center col-span-2 w-full">
             <div id="title" class="flex text-white m-0 px-10 col-span-2 font-bold relative p-16 max-w-md  md:pd-l" >
                 <h2 id="top" class="m-0 absolute z{2}">MY PROFILE </h2>
