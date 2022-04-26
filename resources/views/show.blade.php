@@ -57,7 +57,7 @@
                 @endif
         @endif
         <a href="{{URL::previous()}}" class="self-start mt-5">
-                <i class="fa-solid fa-arrow-left text-white text-3xl pl-4"></i>
+                <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
         </a>
 </div>
 

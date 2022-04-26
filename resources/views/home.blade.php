@@ -30,7 +30,7 @@
 
     @foreach ($events as $event)
     <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
-        flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-52 md:w-60">
+        flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
         <div class="relative -bottom-[14px]">
             <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($event->date_and_time)) }}</p>
             <p class="text-xl font-semibold">{{$event->speaker}}</p>
@@ -59,8 +59,8 @@
 
         <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
         @else
-        <div id="join-btn" class="text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
-            <a id="" class="font-bold text-[10px]" href="" >JOIN</a>
+        <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
+            <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
         </div>
         @endif
     </div>
