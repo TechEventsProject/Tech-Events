@@ -128,9 +128,15 @@
                         @csrf
                         </form>
                     </div>
+                    @if(Auth::user()->avatar)
                     <a href="{{route('my_profile')}}">
-                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                        <img src="{{Auth::user()->avatar}}" alt="" class="rounded-full h-11 w-11 object-cover border-1 border-[#94DB93]">
+                    </a>                    
+                    @else
+                    <a href="{{route('my_profile')}}">
+                        <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
                     </a>
+                    @endif
                 </div>
             </ul>
         @endguest
