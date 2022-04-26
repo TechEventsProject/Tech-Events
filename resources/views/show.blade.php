@@ -46,15 +46,45 @@
                 Login
         </button>
         @else
-                @if ($event->user->contains(Auth::user()->id))
+        <!--1-->@if ($event->user->contains(Auth::user()->id))
                 <button onclick="window.location = `{{ route('unsubscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Cancel Subscription
                 </button>
                 @else
-                <button onclick="window.location = `{{ route('subscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
+                <button id="join-btn" onclick="window.location = `{{ route('subscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Join the Event
                 </button>
-                @endif
+
+                <!--modal_user_auth_joinedSuccesfully_1.0v-->
+
+        <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+                <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
+                
+                <div class="flex flex-col text-center ">
+                        <p class=" flex flex-col text-[16px] font-bold">JOINED THE EVENT SUCCESFULLY!</p>
+                </div>      
+        </div>
+
+        <!-- POPUPS -->
+        <script>
+        window.addEventListener
+        ('DOMContentLoaded', () =>{
+                const overlay = document.querySelector
+                ('#overlay')
+                const joinBtn = document.querySelector
+                ('#join-btn')
+
+                joinBtn.addEventListener ('click', () =>{
+                overlay.classList.remove('hidden')
+                // joinBtn.querySelectorAll.remove(`{{ route('subscribe', $event->id) }}`)
+                })
+                overlay.addEventListener ('click', () =>{
+                overlay.classList.add('hidden')
+                // joinBtn.querySelectorAll.add(`{{ route('subscribe', $event->id) }}`)
+                })
+        })
+        </script>
+                @endif <!--1-->
         @endif
         <a href="{{URL::previous()}}" class="self-start mt-5">
                 <i class="fa-solid fa-arrow-left text-white text-3xl pl-4"></i>

@@ -81,7 +81,7 @@
                             </a>
                         </div>
 
-        
+        <!--modal_admin_delete_2.0v-->
     <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
             
@@ -111,10 +111,12 @@
 
         <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
         @else
-        <div id="join-btn" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
+        <button id="join-btn" onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
+
     
-            <a id="" class=" font-bold text-[10px]" href="{{ route('subscribe', $event->id) }}`" >JOIN</a>
-        </div>
+            <a id="" class=" font-bold text-[10px]" >JOIN</a>
+            <!-- href="{{ route('subscribe', $event->id) }}`"  -->
+        </button>
         @endif
     </div>
     @endforeach
