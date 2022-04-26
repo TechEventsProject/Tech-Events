@@ -39,7 +39,13 @@
             </div>
     </section>
 </form>
-    <a href="{{URL::previous()}}">
+    <div class="flex flex-col text-white items-center justify-start col-span-2">
+        <p class="text-white">Already have an account?</p>
+        <a href="{{route('login')}}">
+            <p class="font-bold underline-offset-1 text-white">LOG IN</p>
+        </a>
+    </div>
+    <a href="{{URL::previous()}}" class="absolute bottom-0 left-0">
         <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
     </a>
 @endsection
