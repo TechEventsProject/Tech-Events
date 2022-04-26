@@ -113,7 +113,7 @@
         @else
         <div id="join-btn" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
     
-            <a id="" class=" font-bold text-[10px]" href="" >JOIN</a>
+            <a id="" class=" font-bold text-[10px]" href="{{ route('subscribe', $event->id) }}`" >JOIN</a>
         </div>
         @endif
     </div>
