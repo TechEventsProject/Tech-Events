@@ -27,13 +27,13 @@
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-black sm:bg-[url('background_login.png')] bg-no-repeat bg-cover bg-[#f4eaf9] h-screen">
-<section class="bg-black/30 h-screen">
-    <div>
-        <main class="grid grid-cols-2 h-screen flex justify-center items-center md:gap-8">
-            @yield('content')
-        </main>
-    </div>
-</section>
+<body class="bg-black sm:bg-[url('background_login.png')] bg-no-repeat bg-cover">
+    <section class="bg-black/30 h-screen">
+        <div>
+            <main class="grid grid-cols-2 h-screen flex justify-center items-center md:gap-8">
+                @yield('content')
+            </main>
+        </div>
+    </section>
 </body>
 </html>

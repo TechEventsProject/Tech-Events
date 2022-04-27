@@ -5,6 +5,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+// use App\Mail\Contact;
+// use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,7 @@ Route::get('/past_event', [EventController::class, 'past_event'])->name('past_ev
 
 //-----Subscribe/Unsubscribe-----
 
-Route::get('/sub/{id}', [UserController::class, 'subscribe'])->name('subscribe')->middleware('auth');
+Route::get('/sub/{id}', [UserController::class, 'subscribe'])->name('subscribe')->middleware('auth');//('verified')
 Route::get('/unsub/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
 
 Route::get('/my_events',[UserController::class, 'my_events'])->name('my_events')->middleware('auth');
@@ -53,6 +55,13 @@ Route::get('/my_profile', [ProfileController::class, 'show'])->name('my_profile'
 Route::get('/edit_profile', [ProfileController::class, 'edit'])->name('edit_profile')->middleware('auth');
 Route::patch('profile_update/{id}', [ProfileController::class, 'update'])->name('profile_update')->middleware('auth');
 
+Route::get('/landing', [EventController::class, 'landing'])->name('landing');
 
-Route::get('/my_events',[EventController::class,'my_events'])->name('my_events')->middleware('auth');
-//Route::get('/landing/', [EventController::class, 'landing'])->name('landing');
+// Auth::routes(['verify' => true]);
+
+// Route::get('/contact', function(){
+//     Auth::user()->email;
+//     $mail = new Contact;
+//     Mail::to(Auth::user()->email)->send($mail);
+//     return redirect('home');
+// })->name('contact');

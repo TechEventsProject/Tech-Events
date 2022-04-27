@@ -18,13 +18,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous" defer></script>
+    <link href="{{ asset('css/editProfile.css') }}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com" ></script>
+    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous" ></script>
 </head>
 
 <body class="bg-black h-screen">
@@ -106,6 +108,7 @@
                 <a href="{{route('home')}}">
                     <li class="text-white tex-lg">TECH EVENTS</li>
                 </a>
+
                 <div class="flex items-center">
                     <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
                         {{ Auth::user()->name }}
@@ -125,8 +128,28 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                         </form>
+                        
                     </div>
-                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                    @if(Auth::check() && Auth::user()->isAdmin())
+
+                    <div class="flex center content-center justify-center">
+                        <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[27px] w-[117px] ">
+                        <a class="" href="{{route('create')}}">
+                            <p id="" class=" font-bold text-[14px]" >ADD EVENT</p>
+                        </a>
+                        </button>
+                    </div>
+                    @endif
+
+                    @if(Auth::user()->avatar)
+                    <a href="{{route('my_profile')}}">
+                        <img src="{{Auth::user()->avatar}}" alt="" class="rounded-full h-11 w-11 object-cover border-1 border-[#94DB93]">
+                    </a>                    
+                    @else
+                    <a href="{{route('my_profile')}}">
+                        <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                    </a>
+                    @endif
                 </div>
             </ul>
         @endguest

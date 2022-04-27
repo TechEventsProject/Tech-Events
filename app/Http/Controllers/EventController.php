@@ -16,8 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
-        $events = Event::orderBy('id', 'desc')->simplePaginate(4);
+        $events = Event::orderBy('date_and_time', 'desc')->get();
+        //$events = Event::orderBy('id', 'desc');
         return view('home', compact('events'));
     }
 
@@ -116,20 +116,13 @@ class EventController extends Controller
 
     public function highlighted()
     {
-        $highlighted_events = [];
-        $events = Event::all();
-
-        foreach($events as $event){
-            if($event->highlighted) {
-                array_push($highlighted_events, $event);
-            }
-        }
-
+        $events = Event::where('highlighted', 1)->get();
         return view('highlighted', compact('highlighted_events'));
     }
 
-    public function landing(){
-        $events = Event::orderBy('id', 'desc')->simplePaginate(4);
+    public function landing()
+    {
+        $events = Event::orderBy('date_and_time', 'desc')->where('highlighted', 1)->limit(9)->get();
         return view('landing', compact('events'));
     }
 }

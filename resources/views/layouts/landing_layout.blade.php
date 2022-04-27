@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
@@ -91,15 +92,22 @@
                         @csrf
                         </form>
                     </div>
-                    <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                    @if(Auth::user()->avatar)
+                    <a href="{{route('my_profile')}}">
+                        <img src="{{Auth::user()->avatar}}" alt="" class="rounded-full h-11 w-11 object-cover border-1 border-[#94DB93]">
+                    </a>                    
+                    @else
+                    <a href="{{route('my_profile')}}">
+                        <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li>
+                    </a>
+                    @endif
                 </div>
             </ul>
         @endguest
         </nav>
     </div>
     <div>
-        <main class="grid grid-cols ">
-            
+        <main>
             @yield('content')
         </main>
     </div>

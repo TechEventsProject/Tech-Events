@@ -46,7 +46,7 @@
                 Login
         </button>
         @else
-        <!--1-->@if ($event->user->contains(Auth::user()->id))
+                @if ($event->user->contains(Auth::user()->id))
                 <button onclick="window.location = `{{ route('unsubscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Cancel Subscription
                 </button>
@@ -54,6 +54,9 @@
                 <button id="join-btn" onclick="window.location = `{{ route('subscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Join the Event
                 </button>
+        @endif 
+        @endif 
+        
 
                 <!--modal_user_auth_joinedSuccesfully_1.0v-->
 
@@ -84,10 +87,9 @@
                 })
         })
         </script>
-                @endif <!--1-->
-        @endif
+         
         <a href="{{URL::previous()}}" class="self-start mt-5">
-                <i class="fa-solid fa-arrow-left text-white text-3xl pl-4"></i>
+                <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
         </a>
 </div>
 

@@ -77,7 +77,7 @@ class EventSubscriptionTest extends TestCase
 
         $response = $this->get(route('subscribe', $event->id));
 
-        $response->assertRedirect('home');
+        $response->assertRedirect('show/1');
         $this->assertNotContains($user->id, $event->user);
     }
 }

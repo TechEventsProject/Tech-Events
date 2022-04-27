@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         Event::factory()->create(['name' => 'Blaster', 'speaker'=>'Keane', 'date_and_time'=>'2022-12-24 10:45:00', 'max_participants'=> 10, 'description'=>' In his photography class, learn different creative approaches, editorial spreads, and passion projects, bring your photography to new heights.', 'image'=>'https://images.pexels.com/photos/2252541/pexels-photo-2252541.jpeg?cs=srgb&dl=pexels-mark-stebnicki-2252541.jpg&fm=jpg', 'location'=>'porky town', 'created_at'=>'2022-04-01 08:23:29', 'updated_at'=>'2022-04-01 08:23:29']);
         User::factory()->create(['name' => 'user1', 'email' => 'user1@user.com']);
         User::factory()->create(['name' => 'admin', 'email' => 'admin@user.com', 'isAdmin' => true]);
-
-
+        User::factory()->create(['name' => 'bigbae', 'email' => 'bigbae@bigbae.com']);
+        User::factory()->create(['name' => 'admin-bigbae', 'email' => 'admin@bigbae.com', 'isAdmin' => true]);
     }
 }
