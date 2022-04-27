@@ -7,21 +7,15 @@
     </button>
 </a>
 @endif
+
+<!---------- MASTERCLASS ---------->
+
     <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5">
         <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">MASTERCLASS </h2>
         <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">MASTERCLASS </h2>
     </div>
 
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
-    <!--Modal-->
-    <div id="overlay" class=" flex hidden absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
-        <div class=" h-[204px] w-[268px] bg-[#94DB93] align-middle items-center rounded-[68px]">
-            <p class=" text-center font-[Montserrat]  text-[#FFFDFF] text-[20px] font-bold">
-            join us now by creating an account
-            <a href="{{ route('register') }}">“Register”</a></p>
-        </div>
-    </div>
-
     @foreach ($events as $event)
     <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
         flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
@@ -33,7 +27,8 @@
             <a class="text-sm font-semibold align-middle leading-[12px]" href="{{route('show', ['id' => $event->id])}}">{{$event->name}}</a>
         </div>
 
-        <!--admin crud-->
+        <!-----admin crud------>
+        
         @if(Auth::check() && Auth::user()->isAdmin())
         <div class=" flex justify-center gap-2 relative -bottom-14 ">
                 <form action="{{route('delete', ['id' => $event->id])}}" method="post" onclick="return confirm('Are you sure?')">
@@ -51,45 +46,8 @@
                 </a>
             </div>
 
-        <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
-        @else
-        <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
-            <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
-        </div>
-        @endif
-    </div>
-    @endforeach
-    <h1 class="col-span-2">Past Events</h1>
-    @foreach ($past_events as $past_event)
-    <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
-        flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
-        <div class="relative -bottom-[14px]">
-            <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($past_event->date_and_time)) }}</p>
-            <p class="text-xl font-semibold">{{$past_event->speaker}}</p>
-        </div>
-        <div class="relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
-            <a class="text-sm font-semibold align-middle leading-[12px]" href="{{route('show', ['id' => $past_event->id])}}">{{$past_event->name}}</a>
-        </div>
+<!----subscribe route/join button 'only for user and guest, but not needed for admin----->
 
-        <!--admin crud-->
-        @if(Auth::check() && Auth::user()->isAdmin())
-        <div class=" flex justify-center gap-2 relative -bottom-14 ">
-                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
-                @method('delete')
-                @csrf
-                <button type="submit">
-                    <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
-                </button>
-                </form>
-                <a href="{{route('edit', ['id' => $past_event->id])}}">
-                    <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
-                </a>
-                <a href="">
-                    <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                </a>
-            </div>
-
-        <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
         @else
         <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
             <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
@@ -98,6 +56,57 @@
     </div>
     @endforeach
     </section>
+
+
+<!------------ PAST EVENTS ---------->
+
+    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5 w-full">
+        <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">PAST EVENTS</h2>
+        <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">PAST EVENTS</h2>
+    </div>
+
+    <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
+        @foreach ($past_events as $past_event)
+        <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
+            flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
+            <div class="relative -bottom-[14px]">
+                <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($past_event->date_and_time)) }}</p>
+                <p class="text-xl font-semibold">{{$past_event->speaker}}</p>
+            </div>
+            <div class="relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
+                <a class="text-sm font-semibold align-middle leading-[12px]" href="{{route('show', ['id' => $past_event->id])}}">{{$past_event->name}}</a>
+            </div>
+    
+<!--------admin crud------->
+
+            @if(Auth::check() && Auth::user()->isAdmin())
+            <div class=" flex justify-center gap-2 relative -bottom-14 ">
+                    <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
+                    @method('delete')
+                    @csrf
+                    <button type="submit">
+                        <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
+                    </button>
+                    </form>
+                    <a href="{{route('edit', ['id' => $past_event->id])}}">
+                        <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
+                    </a>
+                    <a href="">
+                        <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                    </a>
+                </div>
+    
+<!------subscribe route/join button 'only for user and guest, but not needed for admin'----->
+
+            @else
+            <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
+                <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
+            </div>
+            @endif
+        </div>
+        @endforeach
+    </section>
+
 <footer class="col-span-2 mt-4">
     <div class="flex justify-center mt-4">
         <hr class="w-80 bg-white">

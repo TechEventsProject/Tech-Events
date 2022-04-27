@@ -21,6 +21,7 @@ class Kernel extends ConsoleKernel
             date_default_timezone_set('Europe/Madrid');
 
             Event::where('date_and_time', '<', date('Y-m-d H:i:s'))->update(['past_event' => 1]);
+            Event::where('date_and_time', '>', date('Y-m-d H:i:s'))->update(['past_event' => 0]);
 
         })->everyMinute();
     }
