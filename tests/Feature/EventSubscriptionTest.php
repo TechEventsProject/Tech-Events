@@ -80,5 +80,17 @@ class EventSubscriptionTest extends TestCase
         $response->assertRedirect('show/1');
         $this->assertNotContains($user->id, $event->user);
     }
+    
+    public function test_past_events_printing_home()
+    {
+        $this->withExceptionHandling();
+
+        $pastEvent = Event::factory()->create(['past_event'=>true]);
+
+        $response = $this->get('home', compact('pastEvent'));
+        $response->assertStatus(200)
+            ->assertSee($pastEvent->name);
+
+    }
 }
 
