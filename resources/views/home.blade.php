@@ -7,12 +7,6 @@
     </button>
 </a>
 @endif
-
-    <!-- <div id="title" class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20" >
-        <h2 id="top" class="m-0 absolute z-10 text-7xl md:text-9xl">TECH</h2>
-        <h2 id="bottom" class="z-0 absolute mt-4 text-7xl md:text-9xl">TECH</h2>
-    </div> -->
-
     <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5">
         <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">MASTERCLASS </h2>
         <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">MASTERCLASS </h2>
