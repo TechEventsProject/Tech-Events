@@ -26,8 +26,8 @@
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
     <link href="{{ asset('css/editProfile.css') }}" rel="stylesheet">
     <link rel="icon" href="{{asset('TabIcon.png')}}">
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-black h-screen">
