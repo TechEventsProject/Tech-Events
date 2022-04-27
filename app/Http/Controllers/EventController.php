@@ -18,7 +18,6 @@ class EventController extends Controller
     {
         $events = Event::orderBy('date_and_time', 'desc')->where('past_event', 0)->get();
         $past_events = Event::orderBy('date_and_time', 'desc')->where('past_event', 1)->get();
-        //$events = Event::orderBy('id', 'desc');
         return view('home', compact(['events', 'past_events']));
     }
 

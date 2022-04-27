@@ -1,12 +1,12 @@
 @extends ('layouts.app')
 @section('content')
-    <div class="flex justify-center col-span-2 p-4">
-        <h1 class="text-white font-['Montserrat'] z-10 mt-2 absolute text-3xl font-bold">Create</h1>
-        <h1 class="text-white font-['Montserrat'] z-20 text-3xl font-bold">Create</h1>
+    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5 w-full">
+        <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">CREATE</h2>
+        <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">CREATE</h2>
     </div>
-    <form action="{{route('store')}}" method="post">
+    <form action="{{route('store')}}" method="post" class="flex justify-center col-span-2">
         @csrf
-        <div class="flex justify-center flex-column w-screen p-4 gap-4 items-center border-1 border-white rounded-3xl">
+        <div class="flex justify-center flex-column w-fit p-9 gap-4 items-center border-1 border-white rounded-3xl md:p-12">
             <input type="text" name="name" class="rounded-3xl text-center w-64 h-11" placeholder="Name">
             <input type="text" name="speaker" class="rounded-3xl text-center w-64 h-11" placeholder="Speaker">
             <input type="datetime-local" name="date_and_time" class="rounded-3xl text-center w-64 h-11" placeholder="Date and Time">
@@ -30,6 +30,7 @@
                     <button class="h-9 w-32 rounded-3xl bg-white font-['Montserrat'] font-bold" type="button">Cancel</button>
                 </a>
             </div>
+            
         </div>
     </form>
     <a href="{{URL::previous()}}" class="col-span-2">

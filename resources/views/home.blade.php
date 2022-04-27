@@ -19,6 +19,9 @@
     @foreach ($events as $event)
     <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
         flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
+
+        <section class="bg-black/60 h-full w-full flex justify-around items-center flex-col">
+
         <div class="relative -bottom-[14px]">
             <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($event->date_and_time)) }}</p>
             <p class="text-xl font-semibold">{{$event->speaker}}</p>
@@ -41,9 +44,15 @@
                 <a href="{{route('edit', ['id' => $event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
-                <a href="">
+                @if($event->highlighted)
+                <a href="{{route('highlighted')}}">
+                    <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                </a>
+                @else
+                <a href="{{route('highlighted')}}">
                     <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                 </a>
+                @endif
             </div>
 
 <!----subscribe route/join button 'only for user and guest, but not needed for admin----->
@@ -53,6 +62,7 @@
             <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
         </div>
         @endif
+        </section>
     </div>
     @endforeach
     </section>
@@ -69,6 +79,9 @@
         @foreach ($past_events as $past_event)
         <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
             flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
+
+            <section class="bg-black/60 h-full w-full flex justify-around items-center flex-col">
+
             <div class="relative -bottom-[14px]">
                 <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($past_event->date_and_time)) }}</p>
                 <p class="text-xl font-semibold">{{$past_event->speaker}}</p>
@@ -81,19 +94,25 @@
 
             @if(Auth::check() && Auth::user()->isAdmin())
             <div class=" flex justify-center gap-2 relative -bottom-14 ">
-                    <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
-                    @method('delete')
-                    @csrf
+                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
+                @method('delete')
+                @csrf
                     <button type="submit">
                         <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                     </button>
-                    </form>
-                    <a href="{{route('edit', ['id' => $past_event->id])}}">
-                        <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
-                    </a>
-                    <a href="">
-                        <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                    </a>
+                </form>
+                <a href="{{route('edit', ['id' => $past_event->id])}}">
+                    <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
+                </a>
+                @if($past_event->highlighted)
+                <a href="{{route('highlighted')}}">
+                    <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                </a>
+                @else
+                <a href="{{route('highlighted')}}">
+                    <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                </a>
+                @endif
                 </div>
     
 <!------subscribe route/join button 'only for user and guest, but not needed for admin'----->
@@ -103,6 +122,7 @@
                 <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
             </div>
             @endif
+            </section>
         </div>
         @endforeach
     </section>
