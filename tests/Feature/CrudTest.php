@@ -18,15 +18,27 @@ class CrudTest extends TestCase
      */
     use RefreshDatabase;
 
+    public function test_events_printing_landing()
+    {
+
+        $this->withExceptionHandling();
+        $H_event = Event::factory()->create(['highlighted' => true]);
+
+        $response = $this->get('/landing', compact($H_event));
+        $response->assertStatus(200)
+            ->assertSee($H_event->name);
+
+    }
+
     public function test_events_printing_home()
     {
 
         $this->withExceptionHandling();
-        Event::all();
+        $event = Event::factory()->create();
 
-        $response = $this->get('/');
+        $response = $this->get('/home', compact($event));
         $response->assertStatus(200)
-            ->assertViewIs('landing');
+            ->assertSee($event->image);
 
     }
 

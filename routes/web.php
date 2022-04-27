@@ -62,6 +62,6 @@ Route::get('/landing', [EventController::class, 'landing'])->name('landing');
 // Route::get('/contact', function(){
 //     Auth::user()->email;
 //     $mail = new Contact;
-//     Mail::to('alexvid33@gmail.com')->send($mail);
+//     Mail::to(Auth::user()->email)->send($mail);
 //     return redirect('home');
 // })->name('contact');
