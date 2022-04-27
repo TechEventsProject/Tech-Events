@@ -57,6 +57,9 @@
                     <a href="{{route('home')}}">
                         <li>About Us</li>
                     </a>
+                    <a href="{{route('landing')}}">
+                        <li>Highlighted Events</li>
+                    </a>
                     <a href="{{route('home')}}">
                         <li>Masterclass</li>
                     </a>
@@ -91,6 +94,9 @@
                     space-x-6">
                         <a href="{{route('home')}}">
                             <li>About Us</li>
+                        </a>
+                        <a href="{{route('landing')}}">
+                            <li>Highlighted Events</li>
                         </a>
                         <a href="{{route('home')}}">
                             <li>Masterclass</li>

@@ -1,6 +1,6 @@
 @extends ('layouts.app')
 @section('content')
-<div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5 w-full">
+    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5 w-full">
         <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">EDIT</h2>
         <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">EDIT</h2>
     </div>

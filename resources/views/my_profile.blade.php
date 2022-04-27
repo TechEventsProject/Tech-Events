@@ -4,7 +4,7 @@
 
 <section class="col-span-2 flex justify-center items-center flex-col h-max w-full gap-4">
 
-    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 w-full col-span-2 mt-5">
+    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 w-full col-span-2 mt-3">
         <h2 id="top" class="flex flex-row m-0 absolute z-10 text-4xl md:text-7xl">MY PROFILE</h2>
         <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">MY PROFILE</h2>
     </div>
