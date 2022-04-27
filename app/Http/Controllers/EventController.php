@@ -117,7 +117,8 @@ class EventController extends Controller
     public function highlighted()
     {
         $events = Event::where('highlighted', 1)->get();
-        return view('highlighted', compact('highlighted_events'));
+
+        return view('home', compact('events'));
     }
 
     public function landing()

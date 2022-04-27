@@ -60,11 +60,8 @@
                     <a href="{{route('home')}}">
                         <li>Masterclass</li>
                     </a>
-                    <a href="{{route('home')}}">
-                        <li>Workshops</li>
-                    </a>
-                    <a href="{{route('home')}}">
-                        <li>Webinars</li>
+                    <a href="#past_events_section">
+                        <li>Past Events</li>
                     </a>
                 </ul>
             </div>
@@ -98,11 +95,8 @@
                         <a href="{{route('home')}}">
                             <li>Masterclass</li>
                         </a>
-                        <a href="{{route('home')}}">
-                            <li>Workshops</li>
-                        </a>
-                        <a href="{{route('home')}}">
-                            <li>Webinars</li>
+                        <a href="#past_events_section">
+                            <li>Past Events</li>
                         </a>
                     </ul>
                 </div>

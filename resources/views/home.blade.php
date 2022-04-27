@@ -45,11 +45,11 @@
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 @if($event->highlighted)
-                <a href="{{route('highlighted')}}">
+                <a href="">
                     <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                 </a>
                 @else
-                <a href="{{route('highlighted')}}">
+                <a href="">
                     <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                 </a>
                 @endif
@@ -70,7 +70,7 @@
 
 <!------------ PAST EVENTS ---------->
 
-    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5 w-full">
+    <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5 w-full" id="past_events_section">
         <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">PAST EVENTS</h2>
         <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">PAST EVENTS</h2>
     </div>
@@ -105,11 +105,11 @@
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 @if($past_event->highlighted)
-                <a href="{{route('highlighted')}}">
+                <a href="">
                     <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                 </a>
                 @else
-                <a href="{{route('highlighted')}}">
+                <a href="">
                     <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                 </a>
                 @endif
@@ -126,6 +126,10 @@
         </div>
         @endforeach
     </section>
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2">
+        <i class="fa-solid fa-arrow-up text-white text-3xl"></i>
+    </button> 
+
 
 <footer class="col-span-2 mt-4">
     <div class="flex justify-center mt-4">
@@ -142,7 +146,7 @@
         </div>
     </div>
 </footer>
-
+<script src="{{asset('js/topArrow.js')}}"></script>
 <!-- POPUPS -->
 <script>
     // window.addEventListener
