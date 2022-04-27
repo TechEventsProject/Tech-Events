@@ -23,6 +23,7 @@
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com" defer></script>
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous" defer></script>
+    <link rel="icon" href="{{asset('TabIcon.png')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
 </head>

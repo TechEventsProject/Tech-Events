@@ -21,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{asset('TabIcon.png')}}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
