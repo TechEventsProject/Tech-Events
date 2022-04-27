@@ -81,6 +81,8 @@
                             </a>
                         </div>
 
+                        
+
         <!--modal_admin_delete_2.0v-->
     <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
@@ -120,7 +122,17 @@
         @endif
     </div>
     @endforeach
+            
     </section>
+
+            <div class="flex center justify-center ">
+                <a href="{{route('create')}}">
+                    <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[27px] w-[117px] ">
+                    <p id="" class=" font-bold text-[14px]" >ADD EVENT</p>
+                    </button>
+                </a>
+            </div>
+
 <div class="col-span-2">{{$events->links()}}</div>
 
 <!-- POPUPS -->
