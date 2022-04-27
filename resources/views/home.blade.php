@@ -65,6 +65,44 @@
         @endif
     </div>
     @endforeach
+    <h1 class="col-span-2">Past Events</h1>
+    @foreach ($past_events as $past_event)
+    <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
+        flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
+        <div class="relative -bottom-[14px]">
+            <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($past_event->date_and_time)) }}</p>
+            <p class="text-xl font-semibold">{{$past_event->speaker}}</p>
+        </div>
+        <div class="relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
+            <a class="text-sm font-semibold align-middle leading-[12px]" href="{{route('show', ['id' => $past_event->id])}}">{{$past_event->name}}</a>
+        </div>
+
+        <!--admin crud-->
+        @if(Auth::check() && Auth::user()->isAdmin())
+        <div class=" flex justify-center gap-2 relative -bottom-14 ">
+                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
+                @method('delete')
+                @csrf
+                <button type="submit">
+                    <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
+                </button>
+                </form>
+                <a href="{{route('edit', ['id' => $past_event->id])}}">
+                    <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
+                </a>
+                <a href="">
+                    <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                </a>
+            </div>
+
+        <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
+        @else
+        <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
+            <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
+        </div>
+        @endif
+    </div>
+    @endforeach
     </section>
 <footer class="col-span-2 mt-4">
     <div class="flex justify-center mt-4">
