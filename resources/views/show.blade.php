@@ -10,12 +10,12 @@
         <section class="w-[85%] h-[22rem] bg-[url('{{ $event->image }}')] rounded-[105px] p-10 bg-cover bg-no-repeat relative bg-center flex items-center justify-center lg:w-[40%] lg:h-[40em]">
                 @if(Auth::check() && Auth::user()->isAdmin())
                 <div class="absolute -bottom-7 flex justify-center gap-2 w-full">
-                        <form action="{{ route('delete', $event->id) }}" method="post">
+                        <!-- <form action="{{ route('delete', $event->id) }}" method="post">
                                 @csrf
-                                @method('delete')
-                                <button class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit"><i class="fa-solid fa-trash"></i></button>
+                                @method('delete') -->
+                                <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit"><i class="fa-solid fa-trash"></i></button>
                                 
-                        </form>
+                        <!-- </form> -->
                         <a href="{{ route('edit', $event->id) }}"><i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i></a>
                         <a><i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i></a>
                         
@@ -60,11 +60,39 @@
 
                 <!--modal_user_auth_joinedSuccesfully_1.0v-->
 
-        <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
-                <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
+        <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex absolute inset-0 bg-cover bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+                <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex align-middle items-center rounded-[68px]">
                 
+                
+                        <p class=" flex flex-col text-center text-[16px] font-bold">JOINED THE EVENT SUCCESFULLY!</p>
+                </div>      
+        </div>
+
+                <!--modal_admin_delete_2.0v-->
+
+        <div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
+        <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
                 <div class="flex flex-col text-center ">
-                        <p class=" flex flex-col text-[16px] font-bold">JOINED THE EVENT SUCCESFULLY!</p>
+                        <p class=" flex flex-col text-[16px] font-regular">
+                        this can't be undone.
+                        <p class="font-bold">DELETE THIS EVENT?</p></p>
+                </div>
+
+                <div class="flex flex-row space-x-[36px] font-bold ">
+                        
+                <button class=" rounded-[28px] items-center bg-[#FFFDFF] h-[64px] w-[80px] text-[#94DB93]">
+                        <p>NAH</p>
+                </button>
+
+                <form action="{{route('delete', ['id' => $event->id])}}" method="post" onclick="return confirm('Are you sure?')">
+                @method('delete')
+                @csrf
+                <button type="submit" class=" rounded-[28px] align-middle  bg-[#69C4A0] h-[64px] w-[80px] ">
+                        <p>YES</p>
+                </button>
+                </form>
+
+                </div>
                 </div>      
         </div>
 
@@ -73,11 +101,11 @@
         window.addEventListener
         ('DOMContentLoaded', () =>{
                 const overlay = document.querySelector
-                ('#overlay')
-                const joinBtn = document.querySelector
-                ('#join-btn')
+                ('#overlay-delete')
+                const deleteBtn = document.querySelector
+                ('#delete-btn')
 
-                joinBtn.addEventListener ('click', () =>{
+                deleteBtn.addEventListener ('click', () =>{
                 overlay.classList.remove('hidden')
                 // joinBtn.querySelectorAll.remove(`{{ route('subscribe', $event->id) }}`)
                 })
@@ -86,8 +114,7 @@
                 // joinBtn.querySelectorAll.add(`{{ route('subscribe', $event->id) }}`)
                 })
         })
-        </script>
-         
+        </script> 
         <a href="{{URL::previous()}}" class="self-start mt-5">
                 <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
         </a>

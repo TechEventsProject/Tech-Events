@@ -19,18 +19,18 @@
     @foreach ($events as $event)
 
     <div id="backgroundImage" class="rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
-    flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 w-60">
+    flex flex-col text-[#FFFDFF] md:h-44 w-40 items-center text-center justify-center h-64 w-60">
 
-    <div class="bg-black/40 font-[Montserrat] rounded-[38px] bg-cover bg-center flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 w-60" >
+    <div class="bg-black/40 font-[Montserrat] rounded-[38px] bg-cover bg-center flex flex-col text-[#FFFDFF] md:h-44 w-40 items-center text-center justify-center h-64 w-60" >
 
         <div class="relative -bottom-[14px]">
             <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($event->date_and_time)) }}</p>
             <p class="text-xl font-semibold">{{$event->speaker}}</p>
         </div>
 
-        <div class="relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
-            <a class="text-sm font-semibold align-middle leading-[12px]" href="{{route('show', ['id' => $event->id])}}">{{$event->name}}</a>
-        </div> 
+        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
+            <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
+        </button> 
 
         
 
@@ -52,7 +52,7 @@
         @endif
 
         <!--modal_admin_delete_2.0v-->
-    <div id="overlay" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
+    <div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
             
             <div class="flex flex-col text-center ">
@@ -82,19 +82,26 @@
         <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
         
         @if(!Auth::user())
-        <button id="join-btn" onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
-            <a id="" class=" font-bold text-[10px]" >LOGIN</a>
+        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
+            <a class=" font-bold text-[10px] " >EVENT</a>
             <!-- href="{{ route('subscribe', $event->id) }}`"  -->
         </button>
         @else
-        @if ($event->user->contains(Auth::user()->id))
+            @if(Auth::check() && !Auth::user()->isAdmin())
         
-        <button id="join-btn" onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
-            <a id="" class=" font-bold text-[10px]" >exit</a>
+        <button onclick="window.location = `{{ route('subscribe', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
+            <a class=" font-bold text-[10px]" >JOIN</a>
             <!-- href="{{ route('subscribe', $event->id) }}`"  -->
         </button>
+        
         @endif
         @endif
+        
+            <!-- 
+
+        <button id="join-btn" onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
+            <a id="" class=" font-bold text-[10px]" >EXIT</a>
+        </button> -->
 
         
         </div>
@@ -123,18 +130,17 @@
 <script>
     window.addEventListener
         ('DOMContentLoaded', () =>{
-        
-        const overlay = document.querySelector
-        ('#overlay')
-        const deleteBtn = document.querySelector
-        ('#delete-btn')
+                const overlay = document.querySelector
+                ('#overlay-delete')
+                const deleteBtn = document.querySelector
+                ('#delete-btn')
 
-        deleteBtn.addEventListener ('click', () =>{
-        overlay.classList.remove('hidden')
+                deleteBtn.addEventListener ('click', () =>{
+                overlay.classList.remove('hidden')
+                })
+                overlay.addEventListener ('click', () =>{
+                overlay.classList.add('hidden')
+                })
         })
-        overlay.addEventListener ('click', () =>{
-        overlay.classList.add('hidden')
-        })
-    })
 </script>
 @endsection

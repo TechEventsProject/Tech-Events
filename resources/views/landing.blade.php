@@ -13,9 +13,11 @@
         <div class="p-12 flex justify-center">
             @foreach ($events as $event)
             <div class="rounded-full bg-[url('{{$event->image}}')] bg-no-repeat bg-cover bg-center m-4 w-44 h-72 overflow-hidden text-white">
+                <div class="bg-black/40 z-10 bg-cover  w-44 h-72 justify-center">
                 <p class="flex justify-center font-bold text-center text-sm pt-12 pl-4 pr-4">{{$event->name}}</p>
                 <p class="flex justify-center">{{$event->date_and_time}}</p>
-                <img class="pt-16 w-500 h-500 ">
+                    <img class="pt-16 w-500 h-500 ">
+                </div>
             </div>
             @endforeach
         </div>
