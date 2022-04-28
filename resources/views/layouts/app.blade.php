@@ -109,6 +109,7 @@
                 <a href="{{route('home')}}">
                     <li class="text-white tex-lg">TECH EVENTS</li>
                 </a>
+
                 <div class="flex items-center">
                     <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
                         {{ Auth::user()->name }}
@@ -128,7 +129,19 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                         </form>
+                        
                     </div>
+                    @if(Auth::check() && Auth::user()->isAdmin())
+
+                    <div class="flex center content-center justify-center">
+                        <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[27px] w-[117px] ">
+                        <a class="" href="{{route('create')}}">
+                            <p id="" class=" font-bold text-[14px]" >ADD EVENT</p>
+                        </a>
+                        </button>
+                    </div>
+                    @endif
+
                     @if(Auth::user()->avatar)
                     <a href="{{route('my_profile')}}">
                         <img src="{{Auth::user()->avatar}}" alt="" class="rounded-full h-11 w-11 object-cover border-1 border-[#94DB93]">
