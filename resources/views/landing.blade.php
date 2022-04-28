@@ -18,7 +18,7 @@
                 <p class="flex justify-center">{{ date('d/m/Y', strtotime($event->date_and_time)) }}</p>
                     <img class="pt-16 w-500 h-500 ">
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
     </section>
