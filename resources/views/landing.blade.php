@@ -12,13 +12,15 @@
     <section class="flex slider justify-center">
         <div class="p-12 flex justify-center">
             @foreach ($events as $event)
-            <div class="rounded-full bg-[url('{{$event->image}}')] bg-no-repeat bg-cover bg-center m-4 w-44 h-72 overflow-hidden text-white">
-                <div class="bg-black/40 z-10 bg-cover  w-44 h-72 justify-center">
-                <p class="flex justify-center font-bold text-center text-sm pt-12 pl-4 pr-4">{{$event->name}}</p>
-                <p class="flex justify-center">{{$event->date_and_time}}</p>
-                    <img class="pt-16 w-500 h-500 ">
+            <a href="{{route('show', ['id' => $event->id])}}">
+                <div class="rounded-full bg-[url('{{$event->image}}')] bg-no-repeat bg-cover bg-center m-4 w-44 h-72 overflow-hidden text-white">
+                    <div class="bg-black/40 z-10 bg-cover  w-44 h-72 justify-center">
+                    <p class="flex justify-center font-bold text-center text-sm pt-12 pl-4 pr-4">{{$event->name}}</p>
+                    <p class="flex justify-center">{{$event->date_and_time}}</p>
+                        <img class="pt-16 w-500 h-500 ">
+                    </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
     </section>
@@ -30,7 +32,7 @@
         </div>
 
         <div class="flex justify-center pb-8">
-            <a href="{{route('home', ['id' => $event->id])}}">
+            <a href="{{route('home')}}">
                 <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] text-white font-bold py-2 px-20 ">
                     <p>See more</p>
                 </button>
