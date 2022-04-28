@@ -48,6 +48,7 @@ Route::get('/my_events',[UserController::class, 'my_events'])->name('my_events')
 
 //HIGHLIGHTED TEST
 Route::get('/highlighted', [EventController::class, 'highlighted'])->name('highlighted');
+Route::post('/highlight', [EventController::class, 'set_highlight'])->name('highlight')->middleware('auth','isAdmin');
 
 //------My Profile------
 
