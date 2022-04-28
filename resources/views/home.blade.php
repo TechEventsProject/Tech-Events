@@ -29,8 +29,6 @@
             <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
         </button> 
 
-        
-
 <!-----ADMIN CRUD MASTERCLASS------>
         
         @if(Auth::check() && Auth::user()->isAdmin())
@@ -146,7 +144,7 @@
                         <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                     </button>
                 </form>
-                <a href="{{route('edit', ['id' => $past_event->id])}}">
+                <a href="{{route('edit', ['id' => $past_event->id] ) }}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 @if($past_event->highlighted)
@@ -159,13 +157,12 @@
                 </a>
                 @endif
                 </div>
-
             @endif
             </section>
         </div>
         @endforeach
     </section>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="hidden fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
         <i class="fa-solid fa-arrow-up text-white text-3xl"></i>
     </button> 
 
