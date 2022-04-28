@@ -158,7 +158,7 @@
         </div>
         @endforeach
     </section>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="hidden fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
         <i class="fa-solid fa-arrow-up text-white text-3xl"></i>
     </button> 
 

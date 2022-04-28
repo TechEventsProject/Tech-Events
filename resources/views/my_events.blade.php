@@ -1,4 +1,4 @@
-@extends('layouts.app')
+npm @extends('layouts.app')
 
 @section('content')
     <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5">
