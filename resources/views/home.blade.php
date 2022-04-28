@@ -33,10 +33,13 @@
         
         @if(Auth::check() && Auth::user()->isAdmin())
         <div class=" flex justify-center gap-2 relative -bottom-14 ">
-                
+            <form action="{{ route('delete', $event->id) }}" method="post">
+                @csrf
+                @method('delete')
                 <button id="delete" type="submit">
                     <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </button>
+            </form>
                 
                 <a href="{{route('edit', ['id' => $event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
