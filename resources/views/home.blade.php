@@ -55,11 +55,11 @@
                 @endif
             </div>
 
-<!----subscribe route/join button 'only for user and guest, but not needed for admin----->
+<!----subscribe route/join button 'only for user and guest----->
 
         @else
-        <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
-            <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
+        <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-14">
+            <a id="" class="font-bold text-[10px] md:text-sm" href="{{ route('subscribe', $event->id) }}" >JOIN</a>
         </div>
         @endif
         </section>
@@ -114,13 +114,7 @@
                 </a>
                 @endif
                 </div>
-    
-<!------subscribe route/join button 'only for user and guest, but not needed for admin'----->
 
-            @else
-            <div id="join-btn" class="flex items-center justify-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] md:h-10 w-32 -bottom-20">
-                <a id="" class="font-bold text-[10px] md:text-sm" href="" >JOIN</a>
-            </div>
             @endif
             </section>
         </div>
