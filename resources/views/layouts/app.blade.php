@@ -56,9 +56,6 @@
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
                 space-x-6">
-                    <a href="{{route('home')}}">
-                        <li>About Us</li>
-                    </a>
                     <a href="{{route('landing')}}">
                         <li>Highlighted Events</li>
                     </a>
