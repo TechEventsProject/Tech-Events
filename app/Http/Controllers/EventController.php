@@ -6,7 +6,6 @@ use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\URL;
 
 class EventController extends Controller
 {
@@ -17,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('date_and_time', 'asc')->where('past_event', 0)->get();
+        $events = Event::orderBy('date_and_time', 'desc')->where('past_event', 0)->get();
         $past_events = Event::orderBy('date_and_time', 'desc')->where('past_event', 1)->get();
         return view('home', compact(['events', 'past_events']));
     }
@@ -124,25 +123,8 @@ class EventController extends Controller
 
     public function landing()
     {
-        $events = Event::orderBy('date_and_time', 'asc')->where('highlighted', 1)->limit(9)->get();
-        
+        $events = Event::orderBy('date_and_time', 'desc')->where('highlighted', 1)->limit(9)->get();
         return view('landing', compact('events'));
-    }
-
-    public function set_highlight() {
-
-        $id = request()->except('_token');
-        $event = Event::find($id)->first();
-
-        if ($event->highlighted) {
-
-            $event->update(["highlighted" => 0]);
-
-        } else {
-            $event->update(["highlighted" => 1]);
-        }
-
-        return redirect(URL::previous());
     }
 }
 

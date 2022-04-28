@@ -24,7 +24,7 @@ class CrudTest extends TestCase
         $this->withExceptionHandling();
         $H_event = Event::factory()->create(['highlighted' => true]);
 
-        $response = $this->get('/landing', compact($H_event));
+        $response = $this->get('/landing');
         $response->assertStatus(200)
             ->assertSee($H_event->name);
 
@@ -36,7 +36,7 @@ class CrudTest extends TestCase
         $this->withExceptionHandling();
         $event = Event::factory()->create();
 
-        $response = $this->get('/home', compact($event));
+        $response = $this->get('/home');
         $response->assertStatus(200)
             ->assertSee($event->image);
 

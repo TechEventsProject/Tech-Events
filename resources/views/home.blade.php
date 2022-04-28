@@ -25,38 +25,33 @@
             <p class="text-xl font-semibold">{{$event->speaker}}</p>
         </div>
 
-        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[40px] w-[148px] md:h-[40px] md:w-[218px] md:text-[30px] lg: lg: ">
+        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
             <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
         </button> 
+
+        
 
 <!-----ADMIN CRUD MASTERCLASS------>
         
         @if(Auth::check() && Auth::user()->isAdmin())
         <div class=" flex justify-center gap-2 relative -bottom-14 ">
-            <form action="{{ route('delete', $event->id) }}" method="post">
-                @csrf
-                @method('delete')
-                <button id="delete" type="submit">
+                
+                <button  id="deleteBtn" type="submit">
                     <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </button>
-            </form>
                 
                 <a href="{{route('edit', ['id' => $event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
-                <form method="post" action="{{ route('highlight') }}">
-                    @csrf
-                    <input name="id" type="hidden" value="{{ $event->id }}" />
-                    @if($event->highlighted)
-                    <button type="submit">
-                        <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                    </button>
-                    @else
-                    <button type="submit">
-                        <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                    </button>
-                    @endif
-                </form>
+                @if($event->highlighted)
+                <a href="">
+                    <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                </a>
+                @else
+                <a href="">
+                    <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
+                </a>
+                @endif
         </div>
         @endif
 
@@ -93,16 +88,16 @@
         
         @if(!Auth::user())
         <a href="{{ route('login') }}">
-            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-8 h-[34px] w-[94px] font-bold text-[12px] md:h-[34px] md:w-[144px] md:text-[14px]  lg:h-[34px] lg:w-[148px] lg:text-[16px]  ">JOIN</button>
+            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] ">JOIN</button>
         </a>
         @elseif(!Auth::user()->isAdmin())
             @if($event->user->contains(Auth::user()->id))
             <a href="{{ route('unsubscribe', $event->id) }}">
-                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-8 h-[34px] w-[94px] font-bold text-[12px] md:h-[34px] md:w-[144px] md:text-[14px] lg:h-[34px] lg:w-[148px] lg:text-[16px] " onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
             </a>
             @else
             <a href="{{ route('subscribe', $event->id) }}">
-                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-8 h-[34px] w-[94px] font-bold text-[12px] md:h-[34px] md:w-[144px] md:text-[14px] lg:h-[34px] lg:w-[148px] lg:text-[16px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
             </a>
         @endif
         @endif
@@ -147,7 +142,7 @@
                         <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                     </button>
                 </form>
-                <a href="{{route('edit', ['id' => $past_event->id] ) }}">
+                <a href="{{route('edit', ['id' => $past_event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 @if($past_event->highlighted)
@@ -160,12 +155,13 @@
                 </a>
                 @endif
                 </div>
+
             @endif
             </section>
         </div>
         @endforeach
     </section>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" class="hidden fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
         <i class="fa-solid fa-arrow-up text-white text-3xl"></i>
     </button> 
 
