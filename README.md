@@ -87,7 +87,7 @@ We recommend you to install [Tailwind](httphttps://tailwindcss.com/docs/guides/l
 - Homebrew
 - Laravel
 
-##(explicación past events a clientes)
+## (explicación past events a clientes)
 (aquí adri pone su explicación)
 
 ## The project in use
