@@ -25,8 +25,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
     <link href="{{ asset('css/editProfile.css') }}" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com" ></script>
-    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous" ></script>
+    <link rel="icon" href="{{asset('TabIcon.png')}}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/176919793f.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-black h-screen">
@@ -56,14 +57,14 @@
                     <a href="{{route('home')}}">
                         <li>About Us</li>
                     </a>
+                    <a href="{{route('landing')}}">
+                        <li>Highlighted Events</li>
+                    </a>
                     <a href="{{route('home')}}">
                         <li>Masterclass</li>
                     </a>
-                    <a href="{{route('home')}}">
-                        <li>Workshops</li>
-                    </a>
-                    <a href="{{route('home')}}">
-                        <li>Webinars</li>
+                    <a href="#past_events_section">
+                        <li>Past Events</li>
                     </a>
                 </ul>
             </div>
@@ -94,14 +95,14 @@
                         <a href="{{route('home')}}">
                             <li>About Us</li>
                         </a>
+                        <a href="{{route('landing')}}">
+                            <li>Highlighted Events</li>
+                        </a>
                         <a href="{{route('home')}}">
                             <li>Masterclass</li>
                         </a>
-                        <a href="{{route('home')}}">
-                            <li>Workshops</li>
-                        </a>
-                        <a href="{{route('home')}}">
-                            <li>Webinars</li>
+                        <a href="#past_events_section">
+                            <li>Past Events</li>
                         </a>
                     </ul>
                 </div>
