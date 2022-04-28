@@ -25,7 +25,7 @@
 
     <section>
         <div class="flex justify-center p-4">
-            <p class="text-[#FFFDFF] pb-4 font-light text-center max-w-[80%] text-xs"> 
+            <p class="text-[#FFFDFF] pb-4 font-light text-center max-w-[70%] text-xs"> 
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, eos in quod esse explicabo quae amet cumque obcaecati libero aut. Modi eaque libero debitis a repellat doloribus! Blanditiis, officia ducimus!</p>
         </div>
 
