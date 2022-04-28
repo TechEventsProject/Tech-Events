@@ -22,4 +22,7 @@
     </div>
     @endforeach
     </section>
+    <a href="{{URL::previous()}}" class="self-start mt-5">
+                <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
+    </a>
 @endsection

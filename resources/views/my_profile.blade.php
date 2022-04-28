@@ -31,6 +31,9 @@
             <button class="h-9 w-32 rounded-3xl bg-[#94DB93] text-white font-['Montserrat'] font-bold" type="button">Cancel</button>
         </a>
     </div>
+    <a href="{{URL::previous()}}" class="self-start mt-5">
+                <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
+    </a>
 </section>
 
 @endsection
