@@ -11,10 +11,14 @@
                 @if(Auth::check() && Auth::user()->isAdmin())
                 <div class="absolute -bottom-7 flex justify-center gap-2 w-full">
                         
-                        <form action="post" action="{{ route('destroy') }}"></form>
-                        <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit">
-                                <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <form action="{{ route('delete', $event->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit">
+                                        <i class="fa-solid fa-trash"></i>
+                                </button>
+                        </form>
+                        
                         <a href="{{ route('edit', $event->id) }}">
                                 <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i>
                         </a>
