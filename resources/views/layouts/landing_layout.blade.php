@@ -38,10 +38,18 @@
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
                 space-y-9">
-                    <li class="hover:bg-[#69C4A0]">About Us</li>
-                    <li>Masterclass</li>
-                    <li>Workshops</li>
-                    <li>Webinars</li>
+                    <a href="{{route('home')}}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{{route('landing')}}">
+                        <li>Highlighted Events</li>
+                    </a>
+                    <a href="{{route('home')}}">
+                        <li>Masterclass</li>
+                    </a>
+                    <a href="{{route('home') .'#past_events_section'}}">
+                        <li>Past Events</li>
+                    </a>
                 </ul>
             </div>
         <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
@@ -67,10 +75,18 @@
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
                 space-y-9">
-                    <li>About Us</li>
-                    <li>Masterclass</li>
-                    <li>Workshops</li>
-                    <li>Webinars</li>
+                    <a href="{{route('home')}}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{{route('landing')}}">
+                        <li>Highlighted Events</li>
+                    </a>
+                    <a href="{{route('home')}}">
+                        <li>Masterclass</li>
+                    </a>
+                    <a href="{{route('home') .'#past_events_section'}}">
+                        <li>Past Events</li>
+                    </a>
                 </ul>
             </div>
                 <div class="flex items-center">

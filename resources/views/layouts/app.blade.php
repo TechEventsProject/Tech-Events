@@ -63,7 +63,7 @@
                     <a href="{{route('home')}}">
                         <li>Masterclass</li>
                     </a>
-                    <a href="#past_events_section">
+                    <a href="{{route('home') .'#past_events_section'}}">
                         <li>Past Events</li>
                     </a>
                 </ul>
@@ -101,7 +101,7 @@
                         <a href="{{route('home')}}">
                             <li>Masterclass</li>
                         </a>
-                        <a href="#past_events_section">
+                        <a href="{{route('home') .'#past_events_section'}}">
                             <li>Past Events</li>
                         </a>
                     </ul>
