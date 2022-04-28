@@ -53,7 +53,7 @@
         <button onclick="window.location = `{{ route('login') }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                 Login
         </button>
-        @else
+        @elseif (!Auth::user()->isAdmin())
                 @if ($event->user->contains(Auth::user()->id))
                 <button onclick="window.location = `{{ route('unsubscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Cancel Subscription
@@ -103,26 +103,6 @@
                 </div>
                 </div>      
         </div>
-
-        <!-- POPUPS -->
-        <script>
-        window.addEventListener
-        ('DOMContentLoaded', () =>{
-                const overlay = document.querySelector
-                ('#overlay-delete')
-                const deleteBtn = document.querySelector
-                ('#delete-btn')
-
-                deleteBtn.addEventListener ('click', () =>{
-                overlay.classList.remove('hidden')
-                // joinBtn.querySelectorAll.remove(`{{ route('subscribe', $event->id) }}`)
-                })
-                overlay.addEventListener ('click', () =>{
-                overlay.classList.add('hidden')
-                // joinBtn.querySelectorAll.add(`{{ route('subscribe', $event->id) }}`)
-                })
-        })
-        </script> 
         <a href="{{URL::previous()}}" class="self-start mt-5">
                 <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
         </a>
