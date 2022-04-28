@@ -12,6 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/index.js') }}" defer></script>
+    <script src="{{ asset('js/deleteBtn.js') }}" defer></script>
+    <script src="{{ asset('js/topArrow.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -47,7 +49,7 @@
         <nav>
         @guest 
         <ul class="container flex justify-between p-6 items-center" >
-            <div class="dropdown relative">
+            <div class="dropdown relative flex items-center gap-4">
                 <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
                     <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
                     <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
@@ -67,10 +69,10 @@
                         <li>Past Events</li>
                     </a>
                 </ul>
+                <a href="{{route('home')}}">
+                    <li class="text-white tex-lg">TECH EVENTS</li>
+                </a>
             </div>
-            <a href="{{route('home')}}">
-                <li class="text-white tex-lg">TECH EVENTS</li>
-            </a>
             <div class="flex items-center">
                 @if(Route::has('login'))
                 <a href="{{ route('login') }}">
@@ -85,7 +87,7 @@
             </div>
             @else
             <ul class="container flex justify-between p-6 items-center" >
-                <div class="dropdown relative">
+                <div  class="dropdown relative flex items-center gap-4">
                     <button class="dropdown-toggle hover:text-[#94DB93] active:text-white transition duration-150 ease-in-out flex items-center whitespace-nowrap" type="button" data-bs-toggle="dropdown">
                         <li class="text-4xl dropdown relative"><i class="fa-solid fa-bars text-[#94DB93]"></i></li>
                         <path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"></path>
@@ -109,6 +111,11 @@
                 <a href="{{route('home')}}">
                     <li class="text-white tex-lg">TECH EVENTS</li>
                 </a>
+                @if(Auth::check() && Auth::user()->isAdmin())
+                <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative h-[27px] w-[117px] ">
+                    <a href="{{route('create')}}" class=" font-bold text-[14px]">ADD EVENT</a>
+                </button>
+                @endif
 
                 <div class="flex items-center">
                     <a id="navbarDropdown" class="text-white nav-link dropdown-toggle font-['Montserrat']" href="#" role="button" data-bs-toggle="dropdown">
@@ -129,18 +136,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                         </form>
-                        
                     </div>
-                    @if(Auth::check() && Auth::user()->isAdmin())
-
-                    <div class="flex center content-center justify-center">
-                        <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[27px] w-[117px] ">
-                        <a class="" href="{{route('create')}}">
-                            <p id="" class=" font-bold text-[14px]" >ADD EVENT</p>
-                        </a>
-                        </button>
-                    </div>
-                    @endif
 
                     @if(Auth::user()->avatar)
                     <a href="{{route('my_profile')}}">

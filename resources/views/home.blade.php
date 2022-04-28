@@ -7,8 +7,8 @@
 <!---------- MASTERCLASS ---------->
 
     <div class="flex justify-center items-center text-white m-0 .p-0 font-bold relative h-20 col-span-2 mt-5">
-        <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">MASTERCLASS </h2>
-        <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">MASTERCLASS </h2>
+        <h2 id="top" class="m-0 absolute z-10 text-4xl md:text-7xl">MASTERCLASS</h2>
+        <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">MASTERCLASS</h2>
     </div>
 
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
@@ -31,12 +31,12 @@
 
         
 
-        <!-----admin crud------>
+<!-----ADMIN CRUD MASTERCLASS------>
         
         @if(Auth::check() && Auth::user()->isAdmin())
         <div class=" flex justify-center gap-2 relative -bottom-14 ">
                 
-                <button  id="delete-btn" type="submit">
+                <button  id="deleteBtn" type="submit">
                     <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </button>
                 
@@ -55,8 +55,9 @@
         </div>
         @endif
 
-        <!--modal_admin_delete_2.0v-->
-    <div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
+    <!--modal_admin_delete_2.0v-->
+
+    <!-- <div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
             
             <div class="flex flex-col text-center ">
@@ -81,32 +82,25 @@
 
             </div>
         </div>      
-    </div>
+    </div> -->
 
-        <!--subscribe route/join button 'only for user and guest, but not needed for admin'-->
+<!------SUBSCRIBE-UNSUBSCRIBE-JOIN BUTTONS------->
         
         @if(!Auth::user())
-        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
-            <a class=" font-bold text-[10px] " >EVENT</a>
-            <!-- href="{{ route('subscribe', $event->id) }}`"  -->
-        </button>
-        @else
-            @if(Auth::check() && !Auth::user()->isAdmin())
-        
-        <button onclick="window.location = `{{ route('subscribe', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
-            <a class=" font-bold text-[10px]" >JOIN</a>
-            <!-- href="{{ route('subscribe', $event->id) }}`"  -->
-        </button>
-        
+        <a href="{{ route('login') }}">
+            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] ">JOIN</button>
+        </a>
+        @elseif(!Auth::user()->isAdmin())
+            @if($event->user->contains(Auth::user()->id))
+            <a href="{{ route('unsubscribe', $event->id) }}">
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
+            </a>
+            @else
+            <a href="{{ route('subscribe', $event->id) }}">
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
+            </a>
         @endif
         @endif
-        
-            <!-- 
-
-        <button id="join-btn" onclick="window.location = `{{ route('show', $event->id) }}`" class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] ">
-            <a id="" class=" font-bold text-[10px]" >EXIT</a>
-        </button> -->
-
         
         </div>
     </div>
@@ -137,14 +131,14 @@
                 <a class="text-sm font-semibold align-middle leading-[12px]" href="{{route('show', ['id' => $past_event->id])}}">{{$past_event->name}}</a>
             </div>
     
-<!--------admin crud------->
+<!--------ADMIN CRUD PAST EVENTS------->
 
             @if(Auth::check() && Auth::user()->isAdmin())
             <div class=" flex justify-center gap-2 relative -bottom-14 ">
                 <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
                 @method('delete')
                 @csrf
-                    <button type="submit">
+                    <button type="submit"  id="deleteBtn">
                         <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                     </button>
                 </form>
@@ -167,10 +161,9 @@
         </div>
         @endforeach
     </section>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2">
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
         <i class="fa-solid fa-arrow-up text-white text-3xl"></i>
     </button> 
-
 
 <footer class="col-span-2 mt-4">
     <div class="flex justify-center mt-4">
@@ -187,22 +180,4 @@
         </div>
     </div>
 </footer>
-<script src="{{asset('js/topArrow.js')}}"></script>
-<!-- POPUPS -->
-<script>
-    window.addEventListener
-        ('DOMContentLoaded', () =>{
-                const overlay = document.querySelector
-                ('#overlay-delete')
-                const deleteBtn = document.querySelector
-                ('#delete-btn')
-
-                deleteBtn.addEventListener ('click', () =>{
-                overlay.classList.remove('hidden')
-                })
-                overlay.addEventListener ('click', () =>{
-                overlay.classList.add('hidden')
-                })
-        })
-</script>
 @endsection
