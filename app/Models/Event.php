@@ -12,10 +12,20 @@ class Event extends Model
     protected $fillable = [
         'name',
         'speaker',
-        'date and time',
-        'participants',
+        'date_and_time',
+        'max_participants',
         'description',
         'image',
         'location',
+        'past_event',
+        'highlighted',
     ];
+
+    public function user (){
+
+        return $this->belongsToMany(User::class);
+    }
+
+
 }
+

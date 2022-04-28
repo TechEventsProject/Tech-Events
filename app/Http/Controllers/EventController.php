@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -13,7 +16,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::orderBy('date_and_time', 'desc')->where('past_event', 0)->get();
+        $past_events = Event::orderBy('date_and_time', 'desc')->where('past_event', 1)->get();
+        return view('home', compact(['events', 'past_events']));
     }
 
     /**
@@ -23,7 +28,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -35,6 +40,11 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
+        $newEvent = request()->except(['_token', 'highlighted']);
+        $newEvent['highlighted'] = $request-> boolean('highlighted');
+        Event::create($newEvent);
+        return redirect()->route('home'); 
+
     }
 
     /**
@@ -45,7 +55,10 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+        $users = count($event->user()->get());
+
+        return view('show', compact(['event', 'users']));
     }
 
     /**
@@ -57,6 +70,10 @@ class EventController extends Controller
     public function edit($id)
     {
         //
+        $event = Event::find($id);
+        $user = User::find($id);
+        return view('edit', compact(['event', 'user']));
+
     }
 
     /**
@@ -69,6 +86,13 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $changeEvent = request()->except(['_token', '_method']);
+        $changeEvent['highlighted'] = $request->boolean('highlighted');
+        
+        Event::where('id', '=', $id)->update($changeEvent);
+        //dd($changeEvent);
+        
+        return redirect()->route('home');
     }
 
     /**
@@ -80,5 +104,27 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+        Event::destroy($id);
+        return redirect()->route('home');
+    }
+    
+    // public function pastEvent()
+    // {
+    //     $events = Event::where('past_event', '=', 1);
+    //     return view('past_event', compact('past_event'));
+    // }
+
+    public function highlighted()
+    {
+        $events = Event::where('highlighted', 1)->get();
+
+        return view('home', compact('events'));
+    }
+
+    public function landing()
+    {
+        $events = Event::orderBy('date_and_time', 'desc')->where('highlighted', 1)->limit(9)->get();
+        return view('landing', compact('events'));
     }
 }
+

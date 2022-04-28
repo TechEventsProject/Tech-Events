@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --primary: #94db93;
+    --secondary: #69c4a0;
+    --white: #fffdff;
+    --black: #000A12;
+}
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    /* margin: 0%; */
+}
+
+h2{
+    font-size: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+}
+
+#bottom{
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+
+#title{
+    /* position: absolute; */
+    margin-bottom: 20rem;
+    padding-bottom: 10rem;
+}
+
+#box{
+    background-color: var(--primary);
+    /* margin: 5rem;
+    margin-top: 10rem; */
+}
+
+
+
