@@ -36,7 +36,7 @@
         @if(Auth::check() && Auth::user()->isAdmin())
         <div class=" flex justify-center gap-2 relative -bottom-14 ">
                 
-                <button  id="deleteBtn" type="submit">
+                <button id="delete" type="submit">
                     <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </button>
                 

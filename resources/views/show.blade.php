@@ -11,8 +11,13 @@
                 @if(Auth::check() && Auth::user()->isAdmin())
                 <div class="absolute -bottom-7 flex justify-center gap-2 w-full">
                         
-                        <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit"><i class="fa-solid fa-trash"></i></button>
-                        <a href="{{ route('edit', $event->id) }}"><i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i></a>
+                        <form action="post" action="{{ route('destroy') }}"></form>
+                        <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit">
+                                <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <a href="{{ route('edit', $event->id) }}">
+                                <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i>
+                        </a>
                         <form method="post" action="{{ route('highlight') }}">
                                 @csrf
                                 <input name="id" value="{{$event->id}}" type="hidden" />
@@ -68,17 +73,17 @@
 
                 <!--modal_user_auth_joinedSuccesfully_1.0v-->
 
-        <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex absolute inset-0 bg-cover bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
+        <!-- <div id="overlay" class=" hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex absolute inset-0 bg-cover bg-opacity-50 bg-[#000A12] z-10 align-middle justify-center items-center">
                 <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex align-middle items-center rounded-[68px]">
                 
                 
                         <p class=" flex flex-col text-center text-[16px] font-bold">JOINED THE EVENT SUCCESFULLY!</p>
                 </div>      
-        </div>
+        </div> -->
 
                 <!--modal_admin_delete_2.0v-->
 
-        <div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
+        <!--<div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
         <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
                 <div class="flex flex-col text-center ">
                         <p class=" flex flex-col text-[16px] font-regular">
@@ -102,7 +107,7 @@
 
                 </div>
                 </div>      
-        </div>
+        </div> -->
         <a href="{{URL::previous()}}" class="self-start mt-5">
                 <i class="fa-solid fa-arrow-left text-white text-5xl p-4 col-span-2 flex self-end"></i>
         </a>
