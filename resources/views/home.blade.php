@@ -15,10 +15,10 @@
 
     @foreach ($events as $event)
 
-    <div id="backgroundImage" class="rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
-    flex flex-col text-[#FFFDFF] md:h-44 w-40 items-center text-center justify-center h-64 w-60">
+    <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
+            flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
 
-    <div class="bg-black/40 font-[Montserrat] rounded-[38px] bg-cover bg-center flex flex-col text-[#FFFDFF] md:h-44 w-40 items-center text-center justify-center h-64 w-60" >
+    <div class="bg-black/60 h-full w-full flex justify-around items-center flex-col" >
 
         <div class="relative -bottom-[14px]">
             <p class='text-sm font-semibold relative -bottom-[5px]'>{{ date('d/m/Y', strtotime($event->date_and_time)) }}</p>
@@ -51,6 +51,7 @@
                 <a href="">
                     <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
                 </a>
+                @endif
         </div>
         @endif
 
