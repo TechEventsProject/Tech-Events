@@ -17,7 +17,8 @@
                     
             <input type="text" name="location" class="rounded-3xl text-center w-64 h-11" placeholder="Location">
 
-            <!-- HIGHLIGHT CHECKBOX -->
+<!-- HIGHLIGHT CHECKBOX -->
+
             <div class="flex items-center form-check">
                 <input class="form-check-input appearance-none h-6 w-6 rounded-sm checked:bg-[#94DB93] focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer switch-input" type="checkbox" id="checkbox" name="highlighted">
                 <label class="form-check-label inline-block text-white" for="checkbox">Highlighted</label>

@@ -7,7 +7,6 @@
         <h2 id="top" class="m-0 absolute z-10 text-7xl md:text-9xl">TECH</h2>
         <h2 id="bottom" class="z-0 absolute mt-4 text-7xl md:text-9xl">TECH</h2>
     </div>
-</section>
 
     <section class="flex slider justify-center">
         <div class="p-12 flex justify-center">
@@ -30,8 +29,8 @@
         </div>
 
         <div class="flex justify-center pb-8">
-            <a href="{{route('home', ['id' => $event->id])}}">
-                <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] animate-pulse  hover:animate-bounce text-white font-bold py-2 px-20 ">
+            <a href="{{route('home')}}">
+                <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] text-white font-bold py-2 px-20 ">
                     <p>See more</p>
                 </button>
             </a>

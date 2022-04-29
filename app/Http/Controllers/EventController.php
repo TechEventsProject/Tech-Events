@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class EventController extends Controller
 {
@@ -125,6 +126,14 @@ class EventController extends Controller
     {
         $events = Event::orderBy('date_and_time', 'asc')->where('highlighted', 1)->limit(9)->get();
         return view('landing', compact('events'));
+    }
+    public function highlight() {
+        $id = request()->except('_token');
+        $event = Event::find($id)->first();
+
+        $event->update(["highlighted" => !$event->highlighted]);
+
+        return redirect(URL::previous());
     }
 }
 
