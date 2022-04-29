@@ -21,7 +21,7 @@
             <p class="text-xl font-semibold">{{$event->speaker}}</p>
         </div>
 
-        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
+        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] md:text-[16px] md:h-[30px] md:w-[204px] lg:h-[30px] lg:w-[200px] lg:text-[16px] ">
             <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
         </button> 
 
@@ -59,16 +59,16 @@
         
         @if(!Auth::user())
         <a href="{{ route('login') }}">
-            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] ">JOIN</button>
+            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-7 h-[24px] w-[94px] font-bold text-[10px] md:-bottom-10 md:h-[28px] md:w-[128px] md:text-[12px]  lg:-bottom-10 lg:h-[28px] lg:w-[128px] lg:text-[12px] ">JOIN</button>
         </a>
         @elseif(!Auth::user()->isAdmin())
             @if($event->user->contains(Auth::user()->id))
             <a href="{{ route('unsubscribe', $event->id) }}">
-                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-7 h-[24px] w-[94px] font-bold text-[10px] md:-bottom-10 md:h-[28px] md:w-[128px] md:text-[12px]  lg:-bottom-10 lg:h-[28px] lg:w-[128px] lg:text-[12px]" onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
             </a>
             @else
             <a href="{{ route('subscribe', $event->id) }}">
-                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-7 h-[24px] w-[94px] font-bold text-[10px] md:-bottom-10 md:h-[28px] md:w-[128px] md:text-[12px]  lg:-bottom-10 lg:h-[28px] lg:w-[128px] lg:text-[12px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
             </a>
         @endif
         @endif
