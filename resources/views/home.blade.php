@@ -29,6 +29,8 @@
             <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
         </button> 
 
+        
+
 <!-----ADMIN CRUD MASTERCLASS------>
         
         @if(Auth::check() && Auth::user()->isAdmin())
@@ -140,7 +142,7 @@
                         <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                     </button>
                 </form>
-                <a href="{{route('edit', ['id' => $past_event->id] ) }}">
+                <a href="{{route('edit', ['id' => $past_event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 @if($past_event->highlighted)
@@ -153,6 +155,7 @@
                 </a>
                 @endif
                 </div>
+
             @endif
             </section>
         </div>

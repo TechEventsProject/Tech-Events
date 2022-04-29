@@ -11,7 +11,7 @@
     <div class="flex flex-col items-center justify-center text-center gap-4 w-72 h-max bg-[#69C4A0] rounded-3xl p-12 md:mt-3">
     @if(Auth::user()->avatar)
     <a href="{{route('my_profile')}}">
-        <img src="{{Auth::user()->avatar}}" alt="" class="rounded-full h-11 w-11 object-cover border-1 border-[#94DB93]">
+        <img src="{{Auth::user()->avatar}}" alt="" class="rounded-full h-36 w-36 object-cover border-1 border-[#94DB93]">
     </a>                    
     @else
     <a href="{{route('my_profile')}}">

@@ -3,11 +3,9 @@
 ## About the project
 Tech Events is part of one of the Factoria F5 Bootcamp projects. The main goals of it are :
 
-Tech Events is a web application where the users can explore and subscribe between different technology events. The aim of this project is to promote masterclasses, workshops and webinars to those interested in web programming, gaming and state-of-the-art techologies.    
+- To acquire the ability to create a fully functional database, using the MVC (Model View Controller) design pattern, using PHP, and Laravel. 
 
-## How to use
-
-If you want to see our project you should first clone this repository: `$ git clone https://github.com/ginkgob/techEvents.git`. It is recommended to install the last version of [composer](https://getcomposer.org/), [xampp](https://www.apachefriends.org/es/index.html) and [laravel](https://laravel.com/). Once installed, execute a local server in your code editor typing `$ php artisan serve` in your terminal. It is important to name DB_DATABASE in your `.env` folder with the same name as your new table in your local database.  
+- Give the admin the ability to do CRUD (Create, Read, Update and Delete).
 
 - Implement the rights depending if you are a  Guest, Admin or User.
 
@@ -89,23 +87,14 @@ We recommend you to install [Tailwind](httphttps://tailwindcss.com/docs/guides/l
 - Homebrew
 - Laravel
 
-##(explicación past events a clientes)
+## (explicación past events a clientes)
 (aquí adri pone su explicación)
 
 ## The project in use
 
 (Aquí ponemos las fotos)
 
-## Languages used
-
-- PHP
-- Laravel
-- Blade
-- Bootstrap
-- Tailwind
-
 ## Developers
-
 - [Jess Mejia](https://github.com/itsberriver)
 - [Adrian Pelayo](https://github.com/bigbae18)
 - [Miguel Dominguez](https://github.com/MADROCHA)
