@@ -10,14 +10,24 @@
         <section class="w-[85%] h-[22rem] bg-[url('{{ $event->image }}')] rounded-[105px] p-10 bg-cover bg-no-repeat relative bg-center flex items-center justify-center lg:w-[40%] lg:h-[40em]">
                 @if(Auth::check() && Auth::user()->isAdmin())
                 <div class="absolute -bottom-7 flex justify-center gap-2 w-full">
-                        <!-- <form action="{{ route('delete', $event->id) }}" method="post">
+                        <form action="{{ route('delete', $event->id) }}" method="post">
                                 @csrf
-                                @method('delete') -->
-                                <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit"><i class="fa-solid fa-trash"></i></button>
+                                @method('delete')
+                                <button id="delete-btn" class="bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none" type="submit" onclick="return confirm('Do you want to delete {{ $event->name }}?')"><i class="fa-solid fa-trash"></i></button>
                                 
-                        <!-- </form> -->
+                        </form>
                         <a href="{{ route('edit', $event->id) }}"><i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i></a>
-                        <a><i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i></a>
+                        <form method="post" action="{{ route('highlight') }}">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $event->id }}" />
+                                <button type="submit">
+                                @if($event->highlighted)
+                                <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i>    
+                                @else
+                                <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 text-2xl leading-none"></i>
+                                @endif
+                                </button>
+                        </form>
 
                 </div>
                 @endif

@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class EventController extends Controller
 {
@@ -130,15 +131,9 @@ class EventController extends Controller
         $id = request()->except('_token');
         $event = Event::find($id)->first();
 
-        switch ($event->highlighted) {
-            case 0:
-                $event->update(["highlighted" => 1]);
-                break;
-            case 1:
-                $event->update(["highlighted" => 0]);
-        }
+        $event->update(["highlighted" => !$event->highlighted]);
 
-        return redirect()->route('home');
+        return redirect(URL::previous());
     }
 }
 

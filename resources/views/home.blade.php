@@ -35,7 +35,7 @@
                 <form action="{{ route('delete', $event->id) }}" method="post">
                 @csrf
                 @method('delete')
-                <button  id="deleteBtn" onclick="return confirm('Do you want to delete ' + {{ $event->name }} + '?')" type="submit">
+                <button  id="deleteBtn" onclick="return confirm('Do you want to delete {{ $event->name }}?')" type="submit">
                     <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </button>
                 </form>
@@ -108,7 +108,7 @@
 
             @if(Auth::check() && Auth::user()->isAdmin())
             <div class=" flex justify-center gap-2 relative -bottom-14 ">
-                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Do you want to delete ' + {{ $event->name }} + '?')">
+                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Do you want to delete {{ $event->name }}?')">
                 @method('delete')
                 @csrf
                     <button type="submit"  id="deleteBtn">
