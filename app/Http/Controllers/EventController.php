@@ -126,5 +126,19 @@ class EventController extends Controller
         $events = Event::orderBy('date_and_time', 'asc')->where('highlighted', 1)->limit(9)->get();
         return view('landing', compact('events'));
     }
+    public function highlight() {
+        $id = request()->except('_token');
+        $event = Event::find($id)->first();
+
+        switch ($event->highlighted) {
+            case 0:
+                $event->update(["highlighted" => 1]);
+                break;
+            case 1:
+                $event->update(["highlighted" => 0]);
+        }
+
+        return redirect()->route('home');
+    }
 }
 
