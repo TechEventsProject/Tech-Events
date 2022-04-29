@@ -8,7 +8,7 @@
         <h2 id="bottom" class="absolute z-0 mt-3 text-4xl md:text-7xl">MASTERCLASS</h2>
     </div>
 
-    <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
+<section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
 
     @foreach ($events as $event)
     <div id="backgroundImage" onclick="window.location = `{{ route('show', $event->id) }}`"  class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
@@ -24,8 +24,6 @@
         <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
             <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
         </button> 
-
-        
 
 <!-----ADMIN CRUD MASTERCLASS------>
         
@@ -79,8 +77,7 @@
     </div>
     @endforeach
 
-    </section>
-
+</section>
 
 <!------------ PAST EVENTS ---------->
 
@@ -91,7 +88,7 @@
 
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
         @foreach ($past_events as $past_event)
-        <div id="backgroundImage" onclick="window.location = `{{ route('show', $event->id) }}`" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
+        <div id="backgroundImage" onclick="window.location = `{{ route('show', $past_event->id) }}`" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
             flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
 
             <section class="bg-black/60 h-full w-full flex justify-around items-center flex-col">
@@ -119,7 +116,6 @@
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 </div>
-
             @endif
             </section>
         </div>
