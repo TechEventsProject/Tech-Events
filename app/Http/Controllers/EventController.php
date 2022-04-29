@@ -123,7 +123,7 @@ class EventController extends Controller
 
     public function landing()
     {
-        $events = Event::orderBy('date_and_time', 'desc')->where('highlighted', 1)->limit(9)->get();
+        $events = Event::orderBy('date_and_time', 'asc')->where('highlighted', 1)->limit(9)->get();
         return view('landing', compact('events'));
     }
     public function highlight() {
