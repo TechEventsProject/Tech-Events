@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@if (Auth::check() && Auth::user()->isAdmin())
-
-@endif
 
 <!---------- MASTERCLASS ---------->
 
@@ -53,35 +50,6 @@
                 @endif
         </div>
         @endif
-
-    <!--modal_admin_delete_2.0v-->
-
-    <!-- <div id="overlay-delete" class=" h-screen w-screen hidden font-[Montserrat] text-[#FFFDFF] text-[20px] flex  absolute inset-0 bg-opacity-30 bg-[#000A12] z-10 align-middle justify-center items-center">
-        <div class="space-y-[120px] h-[204px] w-[268px] bg-[#94DB93] flex flex-col align-middle items-center rounded-[68px]">
-            
-            <div class="flex flex-col text-center ">
-                <p class=" flex flex-col text-[16px] font-regular">
-                this can't be undone.
-                <p class="font-bold">DELETE THIS EVENT?</p></p>
-            </div>
-
-            <div class="flex flex-row space-x-[36px] font-bold ">
-                
-            <button class=" rounded-[28px] items-center bg-[#FFFDFF] h-[64px] w-[80px] text-[#94DB93]">
-                <p>NAH</p>
-            </button>
-
-            <form action="{{route('delete', ['id' => $event->id])}}" method="post" onclick="return confirm('Are you sure?')">
-            @method('delete')
-            @csrf
-            <button type="submit" class=" rounded-[28px] align-middle  bg-[#69C4A0] h-[64px] w-[80px] ">
-                <p>YES</p>
-            </button>
-            </form>
-
-            </div>
-        </div>      
-    </div> -->
 
 <!------SUBSCRIBE-UNSUBSCRIBE-JOIN BUTTONS------->
         
