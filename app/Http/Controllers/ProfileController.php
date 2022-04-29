@@ -46,8 +46,6 @@ class ProfileController extends Controller
         $updateProfile = request()->except(['_token', '_method']);
         
         User::where('id', '=', $id)->update($updateProfile);
-        // $profile = User::find($id);
-        // $profile->update($request->all());
         return redirect()->route('my_profile');
     }
 
