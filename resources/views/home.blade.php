@@ -36,22 +36,28 @@
         @if(Auth::check() && Auth::user()->isAdmin())
         <div class=" flex justify-center gap-2 relative -bottom-14 ">
                 
-                <button  id="deleteBtn" type="submit">
+                <form action="{{ route('delete', $event->id) }}" method="post">
+                @csrf
+                @method('delete')
+                <button  id="deleteBtn" onclick="return confirm('Do you want to delete ' + {{ $event->name }} + '?')" type="submit">
                     <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </button>
+                </form>
                 
                 <a href="{{route('edit', ['id' => $event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
+                <form method="post" action="{{ route('highlight') }}">
+                @csrf
+                <input type="hidden" name="id" value="{{ $event->id }}" />
+                <button type="submit">
                 @if($event->highlighted)
-                <a href="">
-                    <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                </a>
+                    <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>    
                 @else
-                <a href="">
                     <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                </a>
                 @endif
+                </button>
+                </form>
         </div>
         @endif
 
@@ -135,7 +141,7 @@
 
             @if(Auth::check() && Auth::user()->isAdmin())
             <div class=" flex justify-center gap-2 relative -bottom-14 ">
-                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Are you sure?')">
+                <form action="{{route('delete', ['id' => $past_event->id])}}" method="post" onclick="return confirm('Do you want to delete ' + {{ $event->name }} + '?')">
                 @method('delete')
                 @csrf
                     <button type="submit"  id="deleteBtn">
@@ -145,15 +151,6 @@
                 <a href="{{route('edit', ['id' => $past_event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
-                @if($past_event->highlighted)
-                <a href="">
-                    <i class="fa-solid fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                </a>
-                @else
-                <a href="">
-                    <i class="fa-regular fa-star bg-[#FFFDFF] text-[#94DB93] rounded-full p-3  leading-none"></i>
-                </a>
-                @endif
                 </div>
 
             @endif
