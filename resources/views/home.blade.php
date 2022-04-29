@@ -14,8 +14,7 @@
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
 
     @foreach ($events as $event)
-
-    <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
+    <div id="backgroundImage" onclick="window.location = `{{ route('show', $event->id) }}`"  class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
             flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
 
     <div class="bg-black/60 h-full w-full flex justify-around items-center flex-col" >
@@ -25,9 +24,11 @@
             <p class="text-xl font-semibold">{{$event->speaker}}</p>
         </div>
 
-        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[40px] w-[148px] md:h-[40px] md:w-[218px] md:text-[30px] lg: lg: ">
+        <button onclick="window.location = `{{ route('show', $event->id) }}`" class=" relative flex justify-center items-center bg-[#69C4A0] rounded-3xl relative -bottom-[17px] h-[30px] w-[144px] ">
             <a class="text-sm font-semibold align-middle leading-[12px]" >{{$event->name}}</a>
         </button> 
+
+        
 
 <!-----ADMIN CRUD MASTERCLASS------>
         
@@ -86,16 +87,16 @@
         
         @if(!Auth::user())
         <a href="{{ route('login') }}">
-            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-8 h-[34px] w-[94px] font-bold text-[12px] md:h-[34px] md:w-[144px] md:text-[14px]  lg:h-[34px] lg:w-[148px] lg:text-[16px]  ">JOIN</button>
+            <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] ">JOIN</button>
         </a>
         @elseif(!Auth::user()->isAdmin())
             @if($event->user->contains(Auth::user()->id))
             <a href="{{ route('unsubscribe', $event->id) }}">
-                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-8 h-[34px] w-[94px] font-bold text-[12px] md:h-[34px] md:w-[144px] md:text-[14px] lg:h-[34px] lg:w-[148px] lg:text-[16px] " onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You have been unsubscribed from {{$event->name}}')">Unsubscribe</button>
             </a>
             @else
             <a href="{{ route('subscribe', $event->id) }}">
-                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-8 h-[34px] w-[94px] font-bold text-[12px] md:h-[34px] md:w-[144px] md:text-[14px] lg:h-[34px] lg:w-[148px] lg:text-[16px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
+                <button class=" text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative -bottom-12 h-[22px] w-[86px] font-bold text-[10px] " onclick="return confirm('You are succesfully subscribed to {{$event->name}}!')">Subscribe</button>
             </a>
         @endif
         @endif
@@ -116,7 +117,7 @@
 
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
         @foreach ($past_events as $past_event)
-        <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
+        <div id="backgroundImage" onclick="window.location = `{{ route('show', $event->id) }}`" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
             flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
 
             <section class="bg-black/60 h-full w-full flex justify-around items-center flex-col">
@@ -140,7 +141,7 @@
                         <i class="fa-solid fa-trash bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                     </button>
                 </form>
-                <a href="{{route('edit', ['id' => $past_event->id] ) }}">
+                <a href="{{route('edit', ['id' => $past_event->id])}}">
                     <i class="fa-solid fa-pencil bg-[#FFFDFF] text-[#94DB93] rounded-full p-3 leading-none"></i>
                 </a>
                 @if($past_event->highlighted)
@@ -153,12 +154,13 @@
                 </a>
                 @endif
                 </div>
+
             @endif
             </section>
         </div>
         @endforeach
     </section>
-    <button onclick="topFunction()" id="myBtn" title="Go to top" class="hidden fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
+    <button onclick="topFunction()" id="myBtn" title="Go to top" class="fixed bottom-5 right-5 bg-[#94DB93] rounded-xl p-2 z-50">
         <i class="fa-solid fa-arrow-up text-white text-3xl"></i>
     </button> 
 

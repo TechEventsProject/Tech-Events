@@ -56,21 +56,18 @@
                 </button>
                 <ul class="dropdown-menu bg-[#94DB93] text-white font-['Montserrat'] font-bold h-max w-64 p-4 text-xl text-center
                 space-x-6">
-                    <a href="{{route('home')}}">
-                        <li>About Us</li>
-                    </a>
                     <a href="{{route('landing')}}">
                         <li>Highlighted Events</li>
                     </a>
                     <a href="{{route('home')}}">
                         <li>Masterclass</li>
                     </a>
-                    <a href="{{ route('home') .'#past_events_section'}}">
+                    <a href="#past_events_section">
                         <li>Past Events</li>
                     </a>
                 </ul>
                 <a href="{{route('home')}}">
-                    <li class="text-white font-bold">TECH EVENTS</li>
+                    <li class="text-white tex-lg">TECH EVENTS</li>
                 </a>
             </div>
             <div class="flex items-center">
@@ -103,14 +100,14 @@
                         <a href="{{route('home')}}">
                             <li>Masterclass</li>
                         </a>
-                        <a href="{{ route('home') .'#past_events_section'}}">
+                        <a href="#past_events_section">
                             <li>Past Events</li>
                         </a>
                     </ul>
-                    <a href="{{route('home')}}">
-                        <li class="text-white font-bold">TECH EVENTS</li>
-                    </a>
                 </div>
+                <a href="{{route('home')}}">
+                    <li class="text-white tex-lg">TECH EVENTS</li>
+                </a>
                 @if(Auth::check() && Auth::user()->isAdmin())
                 <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative h-[27px] w-[117px] ">
                     <a href="{{route('create')}}" class=" font-bold text-[14px]">ADD EVENT</a>
