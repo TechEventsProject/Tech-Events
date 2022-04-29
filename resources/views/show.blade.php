@@ -45,7 +45,7 @@
         <button onclick="window.location = `{{ route('login') }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                 Login
         </button>
-        @elseif (!Auth::user()->isAdmin())
+        @else
                 @if ($event->user->contains(Auth::user()->id))
                 <button onclick="window.location = `{{ route('unsubscribe', $event->id) }}`" class="bg-[#69C4A0] font-black font-['Montserrat'] text-white uppercase rounded-full py-2 px-10">
                         Cancel Subscription
