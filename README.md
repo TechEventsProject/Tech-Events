@@ -87,12 +87,40 @@ We recommend you to install [Tailwind](httphttps://tailwindcss.com/docs/guides/l
 - Homebrew
 - Laravel
 
-## (explicación past events a clientes)
-(aquí adri pone su explicación)
+
+## Task Scheduling
+
+We have been researching about how to automatize an outdate event. Because of this, our app updates the event state on database.
+
+We have found that Laravel has a Task Scheduling who helps you to perform actions every certain time. 
+
+### Advice
+
+This is not recommendable to do on code for production, it's needed to find some hosting that allows you to do this. Laravel gives you a solution with Laravel Forge. Despite this, we didn't use Laravel Forge for this project.
+
+### Where I locate Task Scheduling
+
+You can check the tasks going to app/Console/Kernel.php. There, we specify the task and the lapse of time for our app to perform this task since the last execute.
+
+### How to run Task Scheduling
+
+In our case, we decided to make events from a specific timezone (Europe/Madrid). All registered events are checked every minute and compared with the actual timezone date. If the event is outdated, the event would be marked as Past Event.
+
+` $ php artisan schedule:work` 
+
 
 ## The project in use
 
-(Aquí ponemos las fotos)
+<img src="public/screenshot_readme_02.png"/>
+<img src="public/screenshot_readme_03.png"/>
+<img src="public/screenshot_readme.png"/>
+<img src="public/screenshot_readme_10.png"/>
+<img src="public/screenshot_readme_09.png"/>
+<img src="public/screenshot_readme_04.png"/>
+<img src="public/screenshot_readme_05.png"/>
+<img src="public/screenshot_readme_06.png"/>
+<img src="public/screenshot_readme_07.png"/>
+<img src="public/screenshot_readme_08.png"/>
 
 ## Developers
 - [Jess Mejia](https://github.com/itsberriver)
@@ -100,3 +128,7 @@ We recommend you to install [Tailwind](httphttps://tailwindcss.com/docs/guides/l
 - [Miguel Dominguez](https://github.com/MADROCHA)
 - [Lucas Abidoral](https://github.com/Lucasbcn)
 - [Alex Vidal](https://github.com/ginkgob)
+
+## Acknowledgments
+To FactoriaF5, for training future coders and give us such a nice project to do!  🧡🧡🧡
+
