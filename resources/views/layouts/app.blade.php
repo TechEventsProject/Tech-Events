@@ -94,8 +94,8 @@
                     </a>
                 </div>
                 @if(Auth::check() && Auth::user()->isAdmin())
-                <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative h-[27px] w-[117px] ">
-                    <a href="{{route('create')}}" class=" font-bold text-[14px]">ADD EVENT</a>
+                <button class="flex items-center place-content-center text-[#94DB93] bg-[#FFFDFF] rounded-3xl relative h-[27px] w-[117px]">
+                    <a href="{{route('create')}}" class=" font-bold text-[10px] md:text-[14px]">ADD EVENT</a>
                 </button>
                 @endif
 
