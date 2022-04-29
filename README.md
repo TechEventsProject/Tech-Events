@@ -100,7 +100,7 @@ This is not recommendable to do on code for production, it's needed to find some
 
 ### Where I locate Task Scheduling
 
-You can check the tasks going to app/Console/Kernel.php. There, we specify the task and the lapse of time for our app to perform this task since the last execute.
+You can check the tasks going to `App/Console/Kernel.php`. There, we specify the task and the lapse of time for our app to perform this task since the last execute.
 
 ### How to run Task Scheduling
 
