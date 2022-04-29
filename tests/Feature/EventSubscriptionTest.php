@@ -40,7 +40,7 @@ class EventSubscriptionTest extends TestCase
 
         $response=$this->get(route('subscribe' , $event->id));
 
-        $this->assertEquals($user->id, $event->user[0]->id);
+        $this->assertTrue($event->user->contains($userLogged->id));
     }
 
     public function test_user_can_unsubscribe_from_event_subscribed() {
