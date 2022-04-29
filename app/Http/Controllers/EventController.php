@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('date_and_time', 'desc')->where('past_event', 0)->get();
+        $events = Event::orderBy('date_and_time', 'asc')->where('past_event', 0)->get();
         $past_events = Event::orderBy('date_and_time', 'desc')->where('past_event', 1)->get();
         return view('home', compact(['events', 'past_events']));
     }
@@ -123,7 +123,7 @@ class EventController extends Controller
 
     public function landing()
     {
-        $events = Event::orderBy('date_and_time', 'desc')->where('highlighted', 1)->limit(9)->get();
+        $events = Event::orderBy('date_and_time', 'asc')->where('highlighted', 1)->limit(9)->get();
         return view('landing', compact('events'));
     }
 }

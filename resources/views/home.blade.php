@@ -14,8 +14,7 @@
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
 
     @foreach ($events as $event)
-
-    <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
+    <div id="backgroundImage" onclick="window.location = `{{ route('show', $event->id) }}`"  class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$event->image}}')]
             flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
 
     <div class="bg-black/60 h-full w-full flex justify-around items-center flex-col" >
@@ -118,7 +117,7 @@
 
     <section class="grid grid-cols-2 col-span-2 gap-20 flex justify-items-center p-9 md:grid-cols-3 lg:grid-cols-4">
         @foreach ($past_events as $past_event)
-        <div id="backgroundImage" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
+        <div id="backgroundImage" onclick="window.location = `{{ route('show', $event->id) }}`" class="font-[Montserrat] rounded-[38px] bg-cover bg-center bg-[url('{{$past_event->image}}')]
             flex flex-col text-[#FFFDFF] h-44 w-40 items-center text-center justify-center md:h-64 md:w-60">
 
             <section class="bg-black/60 h-full w-full flex justify-around items-center flex-col">

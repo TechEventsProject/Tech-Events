@@ -31,7 +31,7 @@
 
         <div class="flex justify-center pb-8">
             <a href="{{route('home', ['id' => $event->id])}}">
-                <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] text-white font-bold py-2 px-20 ">
+                <button id="button" type="button" class="rounded-3xl bg-[#69C4A0] animate-pulse  hover:animate-bounce text-white font-bold py-2 px-20 ">
                     <p>See more</p>
                 </button>
             </a>
