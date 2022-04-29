@@ -7,7 +7,6 @@
         <h2 id="top" class="m-0 absolute z-10 text-7xl md:text-9xl">TECH</h2>
         <h2 id="bottom" class="z-0 absolute mt-4 text-7xl md:text-9xl">TECH</h2>
     </div>
-</section>
 
     <section class="flex slider justify-center">
         <div class="p-12 flex justify-center">

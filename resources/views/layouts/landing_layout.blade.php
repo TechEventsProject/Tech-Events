@@ -52,7 +52,6 @@
                     <li class="text-white tex-lg">TECH EVENTS</li>
                 </a>
             </div>
-        <!--  <li class="text-4xl"><i class="fa-solid fa-bars text-[#94DB93]"></i></li> -->
             <div class="flex items-center">
                 @if(Route::has('login'))
                 <a href="{{ route('login') }}">
@@ -64,7 +63,6 @@
                     <li class="mr-3 text-white font-['Montserrat']">{{ __('Register') }}</li>
                 </a>
                 @endif
-                <!-- <li class="text-4xl"><i class="fa-solid fa-circle-user bg-white text-[#94DB93] rounded-full"></i></li> -->
             </div>
             @else
             <ul class="container flex justify-between p-6 items-center" >
